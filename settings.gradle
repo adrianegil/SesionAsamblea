@@ -1,0 +1,22 @@
+pluginManagement {
+    repositories {
+        maven{
+            url "D:\\Repositories\\Google_Maven\\My_Repo"
+        }
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven{
+            url "D:\\Repositories\\Google_Maven\\My_Repo"
+        }
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "Sesión Asamblea"
+include ':app'

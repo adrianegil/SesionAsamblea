@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="normal_textView_size">25sp</dimen>
+    <dimen name="normal_button_height">80dp</dimen>
+    <dimen name="normal_button_textSize">25sp</dimen>
+    <dimen name="normal_button_iconSize">35dp</dimen>
+    <dimen name="normal_button_cornerRadius">6dp</dimen>
+</resources>

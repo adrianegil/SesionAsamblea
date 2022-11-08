@@ -8,37 +8,37 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:padding="5dp">
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="250dp"
+            android:layout_width="0dp"
             android:layout_height="240dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="50dp"
             android:contentDescription="@string/image"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.52"
             app:srcCompat="@drawable/logoasamblea_color" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
             android:text="@string/No_Register"
             android:textSize="@dimen/normal_textView_size"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayoutNoRegister"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
@@ -58,11 +58,10 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             android:text="@string/No_Folio"
             android:textSize="@dimen/normal_textView_size"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayoutNoRegister"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNoRegister" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -70,14 +69,14 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayoutNoRegister"
             app:layout_constraintTop_toBottomOf="@+id/textView3"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextNoFolio"
+                android:id="@+id/editTextUserName2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="12dp"
@@ -101,6 +100,13 @@
             app:layout_constraintStart_toStartOf="@+id/textInputLayoutNoFolio"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNoFolio"
             app:rippleColor="@color/white" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.45" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

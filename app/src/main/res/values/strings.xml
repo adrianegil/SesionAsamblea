@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Sesión Asamblea</string>
     <string name="appNameLogin">SESIÓN ASAMBLEA</string>
+    <string name="login">Entrar</string>
+    <string name="No_Register">No. Registro</string>
+    <string name="No_Folio">No. Folio</string>
+    <string name="image">Imagen</string>
 </resources>

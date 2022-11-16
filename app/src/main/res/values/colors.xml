@@ -9,7 +9,11 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="primary">#245ba8</color>
-
-
+    <color name="blue">#030385</color>
+    <color name="red">#ff0000</color>
+    <color name="dark">#000000</color>
+    <color name="gray">#9d9d9d</color>
+    <color name="darker_gray">#717171</color>
+    <color name="colorTransparent">@android:color/transparent</color>
 
 </resources>

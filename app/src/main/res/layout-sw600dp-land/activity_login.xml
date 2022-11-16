@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.LoginActivity">
+    tools:context=".ui.activities.LoginActivity">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -47,9 +47,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="12dp"
-
             android:imeOptions="flagNoExtractUi"
-            android:inputType="textPassword"
+            android:inputType="number"
             android:textSize="@dimen/normal_button_textSize" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -81,7 +80,7 @@
             android:layout_height="wrap_content"
             android:drawablePadding="12dp"
             android:imeOptions="flagNoExtractUi"
-            android:inputType="textPassword"
+            android:inputType="number"
             android:textSize="@dimen/normal_button_textSize" />
 
     </com.google.android.material.textfield.TextInputLayout>

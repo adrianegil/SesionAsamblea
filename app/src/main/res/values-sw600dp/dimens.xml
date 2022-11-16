@@ -5,4 +5,8 @@
     <dimen name="normal_button_textSize">25sp</dimen>
     <dimen name="normal_button_iconSize">35dp</dimen>
     <dimen name="normal_button_cornerRadius">6dp</dimen>
+    <dimen name="directorName_textView_size">40sp</dimen>
+    <dimen name="directorPositionName_textView_size">25sp</dimen>
+    <dimen name="normal_icon_heigth">25dp</dimen>
+    <dimen name="normal_icon_width">25dp</dimen>
 </resources>

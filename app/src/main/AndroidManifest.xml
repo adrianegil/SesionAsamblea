@@ -10,10 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SesiónAsamblea">
         <activity
-            android:name=".ui.LoginActivity"
+            android:name=".ui.activities.AboutActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.activities.MainActivity"/>
+        <activity
+            android:name=".ui.activities.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.SplashActivity"
+            android:name=".ui.activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.activities.MainActivity"
             android:exported="true" />
     </application>
 

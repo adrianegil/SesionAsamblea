@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/nav_Assistance"
+        android:title="Asistencia"
+        app:showAsAction="" />
+    <item
+        android:id="@+id/nav_About"
+        android:title="Acerca de" />
+    <item
+        android:id="@+id/nav_Exit"
+        android:title="Cerrar sesión" />
+
+</menu>

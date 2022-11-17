@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         return when (item.itemId) {
             R.id.nav_Assistance -> {
+                startActivity(Intent(this, AssistanceActivity::class.java))
                 true
             }
             R.id.nav_About -> {

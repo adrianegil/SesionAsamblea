@@ -16,4 +16,7 @@
     <color name="darker_gray">#717171</color>
     <color name="colorTransparent">@android:color/transparent</color>
 
+    <color name="green">#634EF321</color>
+    <color name="green_strong">#884EF321</color>
+
 </resources>

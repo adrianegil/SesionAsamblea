@@ -6,4 +6,9 @@
     <string name="No_Folio">No. Folio</string>
     <string name="image">Imagen</string>
     <string name="lorem">Estimados diputados, gracias a la colaboración de la Asamblea Nacional de Viet Nam, contamos hoy con estos soportes informáticos. Su empleo nos permitirá contar con nuevas prestaciones para el ejercicio de nuestras funciones, así como un ahorro considerable de recursos materiales. Es muestra del proceso de informatización que se desarrollaen la Asamblea Nacional del Poder Popular y en nuestra sociedad. Esta herramienta ha sido creada con un diseño sencillo, de conjunto conla empresa de Aplicaciones Informáticas de Cuba (DESOFT). Es un sistema que centra su funcionamiento en la digitalización y tramitación de los documentos que se van a nanalizar en las sesiones de la Asamblea Nacional. Es nuestro propósitoseguir perfeccionándolo, a partir de las ventajas que ofrece la informatización. Hoy cumplimos uno de nuestrossueños, iniciamos el camino en la digitalización de nuestras sesiones.</string>
+    <string name="ausent">
+        Ausente
+    </string>
+    <string name="present">Presente</string>
+    <string name="day_asistance">Asistencia del Día</string>
 </resources>

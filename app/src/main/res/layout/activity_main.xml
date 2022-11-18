@@ -175,4 +175,15 @@
 
     </ScrollView>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/notasFB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/button"
+        android:clickable="true"
+        android:background="@drawable/gradient_splash"
+        tools:layout_editor_absoluteX="1149dp"
+        tools:layout_editor_absoluteY="692dp"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

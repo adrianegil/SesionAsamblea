@@ -9,8 +9,8 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "notesTable")
 class Note(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name="id") val id: Int,
-    @ColumnInfo(name="title") val noteTitle: String,
-    @ColumnInfo(name="description") val noteDescription: String,
-    @ColumnInfo(name="timeStamp") val timeStamp: String
-    )
+    @ColumnInfo(name = "id") val id: Int,
+    @ColumnInfo(name = "title") val noteTitle: String,
+    @ColumnInfo(name = "description") val noteDescription: String,
+    @ColumnInfo(name = "timeStamp") val timeStamp: String
+)

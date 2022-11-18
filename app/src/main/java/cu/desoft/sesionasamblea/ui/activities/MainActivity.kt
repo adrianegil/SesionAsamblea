@@ -4,9 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import cu.desoft.sesionasamblea.R
 import cu.desoft.sesionasamblea.databinding.ActivityMainBinding
+import cu.desoft.sesionasamblea.ui.notepad.NotepadActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +19,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbarMainActivity)
+        binding.notasFB.setOnClickListener(View.OnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    NotepadActivity::class.java
+                )
+            )
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -27,9 +37,6 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         return when (item.itemId) {
-            R.id.nav_Assistance -> {
-                true
-            }
             R.id.nav_About -> {
                 startActivity(Intent(this, AboutActivity::class.java))
                 true

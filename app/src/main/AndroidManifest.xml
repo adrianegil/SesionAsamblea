@@ -14,6 +14,14 @@
             android:exported="false"
             android:parentActivityName=".ui.activities.MainActivity"/>
         <activity
+            android:name=".ui.notepad.NotepadActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.activities.MainActivity"/>
+        <activity
+            android:name=".ui.notepad.AddNoteActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.activities.MainActivity"/>
+        <activity
             android:name=".ui.activities.LoginActivity"
             android:exported="false" />
         <activity

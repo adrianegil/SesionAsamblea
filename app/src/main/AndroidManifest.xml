@@ -13,6 +13,10 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.SesiónAsamblea">
         <activity
+            android:name=".ui.activities.DescriptionActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.activities.AboutActivity" />
+        <activity
             android:name=".ui.activities.AboutActivity"
             android:exported="false"
             android:parentActivityName=".ui.activities.MainActivity" />
@@ -45,7 +49,5 @@
             </intent-filter>
         </receiver>
     </application>
-
-
 
 </manifest>

@@ -68,7 +68,6 @@
                 android:id="@+id/card_present"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/green">
 
@@ -107,7 +106,6 @@
                 android:id="@+id/card_out"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp"
                 android:layout_weight="1">
 
                 <LinearLayout
@@ -164,7 +162,7 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:scaleType="fitXY"

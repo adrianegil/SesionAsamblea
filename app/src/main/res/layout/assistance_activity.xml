@@ -28,7 +28,7 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:scaleType="fitXY"
@@ -160,7 +160,14 @@
         android:layout_marginTop="15dp">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_lis_assistance"
+            android:id="@+id/recycler_list_assistance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_list_out"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="20dp"

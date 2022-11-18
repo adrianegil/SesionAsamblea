@@ -5,6 +5,8 @@ import android.util.Log;
 import com.google.gson.JsonArray;
 
 import cu.desoft.sesionasamblea.service.AssistanceListService;
+import cu.desoft.sesionasamblea.ssl.UnsafeOkHttpClient;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -16,8 +18,10 @@ public class AssistanceListManager {
 
     public Call<JsonArray> getAssistance(String date,String token) {
         try {
+            OkHttpClient clients = UnsafeOkHttpClient.getUnsafeOkHttpClient();
             Retrofit service = new Retrofit.Builder()
-                    .baseUrl("http://asamblea-ws2.hab.desoft.cu/api/")
+                    .client(clients)
+                    .baseUrl("https://asamblea-ws2.hab.desoft.cu/api/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             AssistanceListService restService = service.create(AssistanceListService.class);
@@ -31,7 +35,7 @@ public class AssistanceListManager {
     public Call<JsonArray> getOut(String date,String token) {
         try {
             Retrofit service = new Retrofit.Builder()
-                    .baseUrl("http://asamblea-ws2.hab.desoft.cu/api/")
+                    .baseUrl("https://asamblea-ws2.hab.desoft.cu/api/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             AssistanceListService restService = service.create(AssistanceListService.class);

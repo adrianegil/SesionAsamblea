@@ -1,4 +1,6 @@
-package cu.desoft.sesionasamblea.ui.activities
+package cu.desoft.sesionasamblea.ui.activitie
+
+import android.view.View
 
 import android.os.Bundle
 import android.util.Log
@@ -26,7 +28,7 @@ class AssistanceActivity : AppCompatActivity() {
     private var assistanceList: ArrayList<Assistance> = arrayListOf()
     private var assistanceListOut: ArrayList<Assistance> = arrayListOf()
     var currentDate: String = ""
-    var token: String = "15fa1506e3f908fa9c89652858aa80e50aea3920"
+    var token: String = "8ec51928bf8096226f3aba3f0cd00b6404feecee"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +36,8 @@ class AssistanceActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbarAboutActivity)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        val recyclerview = findViewById<RecyclerView>(R.id.recycler_lis_assistance)
+        val recyclerview = findViewById<RecyclerView>(R.id.recycler_list_assistance)
+        val recyclerviewOut = findViewById<RecyclerView>(R.id.recycler_list_out)
         recyclerview.layoutManager = LinearLayoutManager(this)
         val data = ArrayList<Assistance>()
         val dataOut=ArrayList<Assistance>()
@@ -50,8 +53,8 @@ class AssistanceActivity : AppCompatActivity() {
             R.color.blue
         )
         binding.swipeRefreshAssistanceList.isRefreshing = true
-        binding.recyclerLisAssistance.adapter = AssistanceAdapter(assistanceList)
-        binding.recyclerLisAssistance.layoutManager = LinearLayoutManager(
+        binding.recyclerListAssistance?.adapter = AssistanceAdapter(assistanceList)
+        binding.recyclerListAssistance?.layoutManager = LinearLayoutManager(
             this,
             LinearLayoutManager.VERTICAL,
             false
@@ -65,8 +68,12 @@ class AssistanceActivity : AppCompatActivity() {
         })
 
         retrieveData(data, recyclerview)
+        retrieveDataOut(dataOut,recyclerviewOut)
 
-        binding.cardPresent.setOnClickListener { retrieveData(data,recyclerview) }
+        binding.cardPresent.setOnClickListener {
+                binding.recyclerListAssistance?.visibility= View.VISIBLE
+                binding.recyclerListOut?.visibility=View.GONE
+           }
         binding.cardOut.setOnClickListener { retrieveDataOut(data,recyclerview) }
     }
 
@@ -76,25 +83,26 @@ class AssistanceActivity : AppCompatActivity() {
         try {
             binding.swipeRefreshAssistanceList.isRefreshing = true
             val assistanceManager = AssistanceListManager()
-            val call: Call<JsonArray> = assistanceManager.getAssistance(currentDate, "15fa1506e3f908fa9c89652858aa80e50aea3920")
+            val call: Call<JsonArray> = assistanceManager.getAssistance(currentDate, token)
             call.enqueue(object : Callback<JsonArray?> {
                 override fun onResponse(call: Call<JsonArray?>, response: Response<JsonArray?>) {
-                    if (null != response.body()) {
-                        val jewls = response.body()!!.asJsonArray
+                    if (null != response.body() && response.code() != 200) {
+                        val present = response.body()!!.asJsonObject["results"].asJsonArray
                         assistanceList = java.util.ArrayList<Assistance>()
-                        for (x in 0 until jewls.size()) {
-                            val element = jewls[x]
-
-                            val name = element.asJsonObject["username"].asString
-                            val number = element.asJsonObject["email"].asString
+                        for (x in 0 until present.size()) {
+                            val element = present[x]
+                            val name = element.asJsonObject["nombre"].asString
+                            val number = element.asJsonObject["folio"].asString
                             data.add(Assistance(name, number))
 
                         }
 
-                        binding.swipeRefreshAssistanceList.isRefreshing = false
+
                         val adapter = AssistanceAdapter(data)
                         recyclerview.adapter = adapter
                     }
+                    else
+                    binding.swipeRefreshAssistanceList.isRefreshing = false
                 }
 
                 override fun onFailure(call: Call<JsonArray?>, throwable: Throwable) {
@@ -128,22 +136,23 @@ class AssistanceActivity : AppCompatActivity() {
             val call: Call<JsonArray> = assistanceManager.getOut(currentDate, token)
             call.enqueue(object : Callback<JsonArray?> {
                 override fun onResponse(call: Call<JsonArray?>, response: Response<JsonArray?>) {
-                    if (null != response.body()) {
-                        val jewls = response.body()!!.asJsonArray
-                        assistanceList = java.util.ArrayList<Assistance>()
-                        for (x in 0 until jewls.size()) {
-                            val element = jewls[x]
-
-                            val name = element.asJsonObject["username"].asString
-                            val number = element.asJsonObject["email"].asString
+                    if (null != response.body() && response.code() != 200) {
+                        val present = response.body()!!.asJsonObject["results"].asJsonArray
+                        assistanceListOut = java.util.ArrayList<Assistance>()
+                        for (x in 0 until present.size()) {
+                            val element = present[x]
+                            val name = element.asJsonObject["nombre"].asString
+                            val number = element.asJsonObject["folio"].asString
                             data.add(Assistance(name, number))
 
                         }
 
-                        binding.swipeRefreshAssistanceList.isRefreshing = false
+
                         val adapter = AssistanceAdapter(data)
                         recyclerview.adapter = adapter
                     }
+                    else
+                        binding.swipeRefreshAssistanceList.isRefreshing = false
                 }
 
                 override fun onFailure(call: Call<JsonArray?>, throwable: Throwable) {

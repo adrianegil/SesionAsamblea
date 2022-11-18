@@ -26,6 +26,13 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/capitolio_transparente" />
 
     <TextView
         android:id="@+id/percent"
@@ -36,7 +43,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:text="Porciento de asistencia"
-        android:textSize="30sp" />
+        android:textSize="25dp" />
 
     <TextView
         android:id="@+id/count_total_percent"
@@ -46,7 +53,7 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
         android:text="160"
-        android:textSize="20sp" />
+        android:textSize="20dp" />
 
 
     <TableLayout
@@ -67,14 +74,13 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_present"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@color/green">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
@@ -82,7 +88,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Presentes"
-                        android:textSize="30sp" />
+                        android:textSize="20dp" />
 
                     <TextView
                         android:id="@+id/count_presents"
@@ -90,9 +96,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="160"
-                        android:textSize="20sp" />
+                        android:textSize="18dp" />
 
                     <View
+                        android:layout_gravity="bottom"
                         android:id="@+id/lineaHorizontal"
                         android:layout_width="match_parent"
                         android:layout_height="5dp"
@@ -106,13 +113,12 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_out"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
@@ -120,7 +126,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Ausentes"
-                        android:textSize="30sp" />
+                        android:textSize="20dp" />
 
                     <TextView
                         android:id="@+id/count_out"
@@ -128,7 +134,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="160"
-                        android:textSize="20sp" />
+                        android:textSize="18dp" />
 
                     <View
                         android:layout_width="match_parent"
@@ -151,8 +157,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/table_layout"
-        android:layout_marginTop="15dp"
-        >
+        android:layout_marginTop="15dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_lis_assistance"

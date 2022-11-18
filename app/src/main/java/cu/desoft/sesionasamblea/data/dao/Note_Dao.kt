@@ -1,37 +1,22 @@
 package cu.desoft.sesionasamblea.data.dao
 
+import androidx.annotation.Nullable
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import cu.desoft.sesionasamblea.data.entity.Note
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface Note_Dao {
 
-    @get:Query("SELECT * FROM note")
-    val getAllNote: LiveData<List<Note?>?>?
-
-    @Query("SELECT * FROM note")
-    fun getAllNote(): Flow<List<Note>>
-
-    @Query("SELECT * FROM note WHERE id =:id")
-    fun getNoteById(id: Long): Note?
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveAllNote(noteList: List<Note?>?)
-
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun saveNote(note: Note?)
+    suspend fun insert(note: Note)
 
     @Update
-    fun updateNote(note: Note?)
+    suspend fun update(note: Note)
 
     @Delete
-    fun deleteNote(note: Note?)
+    suspend fun delete(note: Note)
 
-    @Query("DELETE FROM note WHERE id = :id")
-    fun deleteNoteByID(id: Long)
-
-    @Query("DELETE FROM note")
-    fun deleteAll()
+    @Query("Select * from notesTable order by id ASC")
+    fun getAllNotes(): LiveData<List<Note>>
 }

@@ -1,13 +1,13 @@
 package cu.desoft.sesionasamblea.ui.activities
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
-import com.google.gson.JsonArray
+import com.google.gson.JsonObject
 import cu.desoft.sesionasamblea.R
 import cu.desoft.sesionasamblea.databinding.AssistanceActivityBinding
 import cu.desoft.sesionasamblea.logic.Assistance
@@ -18,7 +18,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class AssistanceActivity : AppCompatActivity() {
 
@@ -26,23 +25,23 @@ class AssistanceActivity : AppCompatActivity() {
     private var assistanceList: ArrayList<Assistance> = arrayListOf()
     private var assistanceListOut: ArrayList<Assistance> = arrayListOf()
     var currentDate: String = ""
-    var token: String = "15fa1506e3f908fa9c89652858aa80e50aea3920"
+    var token: String = "token 8ec51928bf8096226f3aba3f0cd00b6404feecee"
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = AssistanceActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbarAboutActivity)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        val recyclerview = findViewById<RecyclerView>(R.id.recycler_lis_assistance)
-        recyclerview.layoutManager = LinearLayoutManager(this)
-        val data = ArrayList<Assistance>()
-        val dataOut=ArrayList<Assistance>()
-        currentDate= SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+        binding.recyclerListAssistance.layoutManager = LinearLayoutManager(this)
+        currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
 
-        // This loop will create 20 Views containing
-        // the image with the count of view
-
+        val pref = applicationContext.getSharedPreferences(
+            "MyPref",
+            MODE_PRIVATE
+        )
+         token= "token " + pref.getString("token", null).toString();
 
         binding.swipeRefreshAssistanceList.setColorSchemeResources(
             R.color.white,
@@ -50,60 +49,67 @@ class AssistanceActivity : AppCompatActivity() {
             R.color.blue
         )
         binding.swipeRefreshAssistanceList.isRefreshing = true
-        binding.recyclerLisAssistance.adapter = AssistanceAdapter(assistanceList)
-        binding.recyclerLisAssistance.layoutManager = LinearLayoutManager(
+        binding.recyclerListAssistance.adapter = AssistanceAdapter(assistanceList)
+        binding.recyclerListAssistance.layoutManager = LinearLayoutManager(
             this,
             LinearLayoutManager.VERTICAL,
             false
         )
 
-        binding.swipeRefreshAssistanceList.setOnRefreshListener(OnRefreshListener {
-            retrieveData(
-                data,
-                recyclerview
-            )
-        })
+        binding.run {
+            swipeRefreshAssistanceList.setOnRefreshListener {
+                onClickPresent()
+                retrieveData()
 
-        retrieveData(data, recyclerview)
+            }
+        }
 
-        binding.cardPresent.setOnClickListener { retrieveData(data,recyclerview) }
-        binding.cardOut.setOnClickListener { retrieveDataOut(data,recyclerview) }
+        retrieveData()
+
+
+
+        binding.cardPresent.setOnClickListener {
+            onClickPresent()
+        }
+        binding.cardOut.setOnClickListener {
+            onClickOut()
+        }
     }
 
 
-    private fun retrieveData(data: ArrayList<Assistance>, recyclerview: RecyclerView) {
-
+    private fun retrieveData() {
         try {
             binding.swipeRefreshAssistanceList.isRefreshing = true
             val assistanceManager = AssistanceListManager()
-            val call: Call<JsonArray> = assistanceManager.getAssistance(currentDate, "15fa1506e3f908fa9c89652858aa80e50aea3920")
-            call.enqueue(object : Callback<JsonArray?> {
-                override fun onResponse(call: Call<JsonArray?>, response: Response<JsonArray?>) {
-                    if (null != response.body()) {
-                        val jewls = response.body()!!.asJsonArray
+            val call: Call<JsonObject> = assistanceManager.getAssistance(currentDate, token)
+            call.enqueue(object : Callback<JsonObject?> {
+                override fun onResponse(call: Call<JsonObject?>, response: Response<JsonObject?>) =
+                    if (null != response.body() && response.code() == 200) {
+                        val present = response.body()!!.asJsonObject["results"].asJsonArray
+                        binding.countPresents.text =
+                            response.body()!!.asJsonObject["count"].asString
                         assistanceList = java.util.ArrayList<Assistance>()
-                        for (x in 0 until jewls.size()) {
-                            val element = jewls[x]
-
-                            val name = element.asJsonObject["username"].asString
-                            val number = element.asJsonObject["email"].asString
-                            data.add(Assistance(name, number))
-
+                        for (x in 0 until present.size()) {
+                            val element = present[x]
+                            val name = element.asJsonObject["nombre"].asString
+                            val number = element.asJsonObject["folio"].asString
+                            assistanceList.add(Assistance(name, number))
                         }
+                        val adapter = AssistanceAdapter(assistanceList)
+                        binding.recyclerListAssistance.adapter = adapter
 
+                        retrieveDataOut()
+                    } else {
                         binding.swipeRefreshAssistanceList.isRefreshing = false
-                        val adapter = AssistanceAdapter(data)
-                        recyclerview.adapter = adapter
                     }
-                }
 
-                override fun onFailure(call: Call<JsonArray?>, throwable: Throwable) {
+                override fun onFailure(call: Call<JsonObject?>, throwable: Throwable) {
                     Toast.makeText(
                         applicationContext,
-                        "Problemas en la conexión" + throwable.toString(),
+                        "Problemas en la conexión",
                         Toast.LENGTH_SHORT
                     ).show()
-                    Log.w("network",throwable.toString())
+                    Log.w("network", throwable.toString())
                     binding.swipeRefreshAssistanceList.isRefreshing = false
 
                 }
@@ -111,7 +117,7 @@ class AssistanceActivity : AppCompatActivity() {
         } catch (e: Exception) {
             Toast.makeText(
                 applicationContext,
-                "Problemas en la conexión" ,
+                "Problemas en la conexión",
                 Toast.LENGTH_SHORT
             ).show()
             binding.swipeRefreshAssistanceList.isRefreshing = false
@@ -120,39 +126,41 @@ class AssistanceActivity : AppCompatActivity() {
         }
     }
 
-    private fun retrieveDataOut(data: ArrayList<Assistance>, recyclerview: RecyclerView) {
+    private fun retrieveDataOut() {
 
         try {
             binding.swipeRefreshAssistanceList.isRefreshing = true
             val assistanceManager = AssistanceListManager()
-            val call: Call<JsonArray> = assistanceManager.getOut(currentDate, token)
-            call.enqueue(object : Callback<JsonArray?> {
-                override fun onResponse(call: Call<JsonArray?>, response: Response<JsonArray?>) {
-                    if (null != response.body()) {
-                        val jewls = response.body()!!.asJsonArray
-                        assistanceList = java.util.ArrayList<Assistance>()
-                        for (x in 0 until jewls.size()) {
-                            val element = jewls[x]
-
-                            val name = element.asJsonObject["username"].asString
-                            val number = element.asJsonObject["email"].asString
-                            data.add(Assistance(name, number))
-
+            val call: Call<JsonObject> = assistanceManager.getOut(currentDate, token)
+            call.enqueue(object : Callback<JsonObject?> {
+                override fun onResponse(call: Call<JsonObject?>, response: Response<JsonObject?>) {
+                    if (null != response.body() && response.code() == 200) {
+                        val present = response.body()!!.asJsonObject["results"].asJsonArray
+                        binding.countOut.text = response.body()!!.asJsonObject["count"].asString
+                        assistanceListOut = java.util.ArrayList<Assistance>()
+                        for (x in 0 until present.size()) {
+                            val element = present[x]
+                            val name = element.asJsonObject["nombre"].asString
+                            val number = element.asJsonObject["folio"].asString
+                            assistanceListOut.add(Assistance(name, number))
                         }
-
+                        val total = assistanceList.size + assistanceListOut.size
+                        val porcent = assistanceList.size * 100 / total
+                        binding.countTotalPercent.text = (porcent).toString() + "%"
                         binding.swipeRefreshAssistanceList.isRefreshing = false
-                        val adapter = AssistanceAdapter(data)
-                        recyclerview.adapter = adapter
-                    }
+
+
+                    } else
+                        binding.swipeRefreshAssistanceList.isRefreshing = false
                 }
 
-                override fun onFailure(call: Call<JsonArray?>, throwable: Throwable) {
+                override fun onFailure(call: Call<JsonObject?>, throwable: Throwable) {
                     Toast.makeText(
                         applicationContext,
-                        "Problemas en la conexión" + throwable.toString(),
+                        "Problemas en la conexión",
                         Toast.LENGTH_SHORT
                     ).show()
-                    Log.w("network",throwable.toString())
+                    Log.w("network", throwable.toString())
                     binding.swipeRefreshAssistanceList.isRefreshing = false
 
                 }
@@ -160,12 +168,36 @@ class AssistanceActivity : AppCompatActivity() {
         } catch (e: Exception) {
             Toast.makeText(
                 applicationContext,
-                "Problemas en la conexión" ,
+                "Problemas en la conexión",
                 Toast.LENGTH_SHORT
             ).show()
             binding.swipeRefreshAssistanceList.isRefreshing = false
 
 
         }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    fun onClickPresent() {
+        val adapter = AssistanceAdapter(assistanceList)
+        binding.recyclerListAssistance.adapter = adapter
+        binding.cardPresent.background = getDrawable(R.color.primary)
+        binding.cardOut.background = getDrawable(R.color.white)
+        binding.textPresent.setTextColor(getColor(R.color.white))
+        binding.countPresents.setTextColor(getColor(R.color.white))
+        binding.countOut.setTextColor(getColor(R.color.black))
+        binding.textOut.setTextColor(getColor(R.color.black))
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    fun onClickOut() {
+        val adapter = AssistanceAdapter(assistanceListOut)
+        binding.recyclerListAssistance.adapter = adapter
+        binding.cardPresent.background = getDrawable(R.color.white)
+        binding.cardOut.background = getDrawable(R.color.red)
+        binding.textPresent.setTextColor(getColor(R.color.black))
+        binding.countPresents.setTextColor(getColor(R.color.black))
+        binding.countOut.setTextColor(getColor(R.color.white))
+        binding.textOut.setTextColor(getColor(R.color.white))
     }
 }

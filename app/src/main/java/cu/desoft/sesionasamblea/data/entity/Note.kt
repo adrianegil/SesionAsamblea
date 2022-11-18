@@ -1,27 +1,14 @@
 package cu.desoft.sesionasamblea.data.entity
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.annotation.IntegerRes
+import androidx.room.*
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "note")
-class Note {
-
-    @PrimaryKey
-    @ColumnInfo(name = "id")
-    @SerializedName("id")
-    var id: Long = 0
-
-    @ColumnInfo(name = "title")
-    @SerializedName("title")
-    var title: String? = null
-
-    @ColumnInfo(name = "description")
-    @SerializedName("description")
-    var description: String? = null
-
-    @ColumnInfo(name = "createdTime")
-    @SerializedName("createdTime")
-    var createdTime: Long = 0
-}
+@Entity(tableName = "notesTable")
+class Note(
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id") val id: Int,
+    @ColumnInfo(name = "title") val noteTitle: String,
+    @ColumnInfo(name = "description") val noteDescription: String,
+    @ColumnInfo(name = "timeStamp") val timeStamp: String
+)

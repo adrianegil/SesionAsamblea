@@ -1,6 +1,7 @@
 package cu.desoft.sesionasamblea.service;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -11,10 +12,10 @@ import retrofit2.http.Query;
 public interface AssistanceListService {
 
     @GET("diputados")
-    Call<JsonArray> getAssistance(@Query("presentes") String date,@Header("Authorization") String authHeader);
+    Call<JsonObject> getAssistance(@Query("presentes") String date,@Header("Authorization") String authHeader);
 
     @GET("diputados")
-    Call<JsonArray> getOut(@Query("ausentes") String date,@Header("Authorization") String authHeader);
+    Call<JsonObject> getOut(@Query("ausentes") String date, @Header("Authorization") String authHeader);
 
 
 

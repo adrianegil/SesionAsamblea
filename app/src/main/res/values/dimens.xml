@@ -1,5 +1,6 @@
 <resources>
     <dimen name="normal_textView_size">15sp</dimen>
+    <dimen name="medium_textView_size">20sp</dimen>
     <dimen name="normal_button_height">60dp</dimen>
     <dimen name="normal_button_textSize">15sp</dimen>
     <dimen name="normal_button_iconSize">24dp</dimen>

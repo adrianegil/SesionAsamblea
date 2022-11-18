@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SesiónAsamblea">
         <activity
+            android:name=".ui.activities.DescriptionActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.activities.AboutActivity" />
+        <activity
             android:name=".ui.activities.AboutActivity"
             android:exported="false"
-            android:parentActivityName=".ui.activities.MainActivity"/>
+            android:parentActivityName=".ui.activities.MainActivity" />
         <activity
             android:name=".ui.activities.LoginActivity"
             android:exported="false" />

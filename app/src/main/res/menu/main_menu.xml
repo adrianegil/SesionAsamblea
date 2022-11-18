@@ -4,13 +4,13 @@
 
     <item
         android:id="@+id/nav_Assistance"
-        android:title="Asistencia"
+        android:title="@string/assistance"
         app:showAsAction="" />
     <item
         android:id="@+id/nav_About"
-        android:title="Acerca de" />
+        android:title="@string/about" />
     <item
         android:id="@+id/nav_Exit"
-        android:title="Cerrar sesión" />
+        android:title="@string/signoff" />
 
 </menu>

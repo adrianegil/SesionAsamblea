@@ -1,4 +1,4 @@
-package cu.desoft.sesionasamblea.ui.notepad
+package cu.desoft.sesionasamblea.ui.viewmodels
 
 import androidx.lifecycle.*
 import cu.desoft.sesionasamblea.data.entity.Note

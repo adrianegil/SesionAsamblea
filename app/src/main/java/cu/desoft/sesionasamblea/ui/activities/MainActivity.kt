@@ -17,6 +17,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbarMainActivity)
+
+        binding.button.setOnClickListener {
+            println("pinga")
+            startActivity(Intent(this,Documents::class.java))
+//            startActivity(Intent(this, Documents::class.java))
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

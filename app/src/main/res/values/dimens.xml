@@ -8,4 +8,5 @@
     <dimen name="directorPositionName_textView_size">15sp</dimen>
     <dimen name="normal_icon_heigth">20dp</dimen>
     <dimen name="normal_icon_width">20dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

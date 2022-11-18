@@ -7,6 +7,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import cu.desoft.sesionasamblea.R
 import cu.desoft.sesionasamblea.databinding.ActivityMainBinding
+import cu.desoft.sesionasamblea.ui.activities.AssistanceActivity
 
 class MainActivity : AppCompatActivity() {
 

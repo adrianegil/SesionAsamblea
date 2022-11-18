@@ -45,6 +45,6 @@ class AssistanceAdapter(private val mList: List<Assistance>) : RecyclerView.Adap
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val name: TextView = itemView.findViewById(R.id.text_name)
-        val number: TextView = itemView.findViewById(R.id.text_name)
+        val number: TextView = itemView.findViewById(R.id.text_number)
     }
 }

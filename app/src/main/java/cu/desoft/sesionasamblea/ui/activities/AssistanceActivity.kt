@@ -100,7 +100,7 @@ class AssistanceActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<JsonObject?>, throwable: Throwable) {
                     Toast.makeText(
                         applicationContext,
-                        "Problemas en la conexión" + throwable.toString(),
+                        "Problemas en la conexión",
                         Toast.LENGTH_SHORT
                     ).show()
                     Log.w("network", throwable.toString())
@@ -151,7 +151,7 @@ class AssistanceActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<JsonObject?>, throwable: Throwable) {
                     Toast.makeText(
                         applicationContext,
-                        "Problemas en la conexión" + throwable.toString(),
+                        "Problemas en la conexión",
                         Toast.LENGTH_SHORT
                     ).show()
                     Log.w("network", throwable.toString())
@@ -188,7 +188,7 @@ class AssistanceActivity : AppCompatActivity() {
         val adapter = AssistanceAdapter(assistanceListOut)
         binding.recyclerListAssistance.adapter = adapter
         binding.cardPresent.background = getDrawable(R.color.white)
-        binding.cardOut.background = getDrawable(R.color.primary)
+        binding.cardOut.background = getDrawable(R.color.red)
         binding.textPresent.setTextColor(getColor(R.color.black))
         binding.countPresents.setTextColor(getColor(R.color.black))
         binding.countOut.setTextColor(getColor(R.color.white))

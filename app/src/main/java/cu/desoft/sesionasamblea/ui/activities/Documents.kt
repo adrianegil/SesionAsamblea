@@ -1,7 +1,10 @@
 package cu.desoft.sesionasamblea.ui.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import cu.desoft.sesionasamblea.R
@@ -58,4 +61,23 @@ class Documents : AppCompatActivity() {
         Document(0,"Test Document2"),
         Document(0,"Test Document3"),
     )
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_addnote, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        return when (item.itemId) {
+            R.id.nav_NoteAdd -> {
+                startActivity(Intent(this, NotepadActivity::class.java))
+                true
+            }
+
+            else -> {
+                true
+            }
+        }
+    }
 }

@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbarMainActivity)
 
         binding.button.setOnClickListener {
-            println("pinga")
             startActivity(Intent(this,Documents::class.java))
 //            startActivity(Intent(this, Documents::class.java))
         }

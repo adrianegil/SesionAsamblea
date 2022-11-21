@@ -1,28 +1,29 @@
 package cu.desoft.sesionasamblea.ui.viewmodels
 
+
+import android.app.Application
 import androidx.lifecycle.*
+import cu.desoft.sesionasamblea.data.AppDatabase
 import cu.desoft.sesionasamblea.data.entity.Note
 import cu.desoft.sesionasamblea.repository.Note_Repository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class NoteViewModel(private val repository: Note_Repository) : ViewModel() {
+class NoteViewModal(application: Application) : AndroidViewModel(application) {
 
-    val allWords: LiveData<List<Note>> = repository.allNote.asLiveData()
+    val allNotes: LiveData<List<Note>>
+    val repository: Note_Repository
 
-    /**
-     * Launching a new coroutine to insert the data in a non-blocking way
-     */
-    fun insert(note: Note) = viewModelScope.launch {
-        repository.insert(note)
+
+    init {
+        val dao = AppDatabase.getDatabase(application,viewModelScope).note_dao()
+        repository = dao?.let { Note_Repository(it) }!!
+        allNotes = repository.allNote
     }
 
-    class NoteViewModelFactory(private val repository: Note_Repository) : ViewModelProvider.Factory {
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(NoteViewModel::class.java)) {
-                @Suppress("UNCHECKED_CAST")
-                return NoteViewModel(repository) as T
-            }
-            throw IllegalArgumentException("Unknown ViewModel class")
-        }
-    }
+    fun deleteNote(note: Note) = viewModelScope.launch(Dispatchers.IO){repository.delete(note)}
+    fun updateNote(note: Note) = viewModelScope.launch(Dispatchers.IO){repository.update(note)}
+    fun addNote(note: Note) = viewModelScope.launch(Dispatchers.IO){repository.insert(note)}
+
+
 }

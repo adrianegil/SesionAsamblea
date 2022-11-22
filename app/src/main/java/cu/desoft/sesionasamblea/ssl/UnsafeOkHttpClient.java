@@ -1,6 +1,7 @@
 package cu.desoft.sesionasamblea.ssl;
 
 import java.security.cert.CertificateException;
+import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
@@ -10,6 +11,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 
 public class UnsafeOkHttpClient {
 
@@ -48,8 +50,12 @@ public class UnsafeOkHttpClient {
                     return true;
                 }
             });
-
-            OkHttpClient okHttpClient = builder.build();
+            HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            OkHttpClient okHttpClient = builder
+                    .addInterceptor(interceptor)
+                    .callTimeout(3, TimeUnit.SECONDS)
+                    .build();
             return okHttpClient;
         } catch (Exception e) {
             throw new RuntimeException(e);

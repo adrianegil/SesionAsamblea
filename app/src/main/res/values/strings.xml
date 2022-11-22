@@ -26,4 +26,8 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="failed_authentication">Autenticación Fallida</string>
+    <string name="no_connection">No tiene conexión al Sistema de Autenticación</string>
+    <string name="must_fill_fields">Debe llenar todos los campos</string>
+    <string name="auth_success">Autenticación Exitosa</string>
 </resources>

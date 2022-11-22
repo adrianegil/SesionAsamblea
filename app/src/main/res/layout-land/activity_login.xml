@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/swipeRefreshLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activities.LoginActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="0dp"
+        android:padding="5dp">
 
         <ImageView
             android:id="@+id/imageView3"
@@ -82,7 +80,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="12dp"
-                android:imeOptions="flagNoExtractUi" />
+                android:imeOptions="flagNoExtractUi"
+                android:inputType="number" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -109,7 +108,16 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.45" />
 
+        <ProgressBar
+            android:id="@+id/progressBarLogin"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/btnLogIn"
+            app:layout_constraintStart_toStartOf="@+id/btnLogIn"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogIn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+</ScrollView>

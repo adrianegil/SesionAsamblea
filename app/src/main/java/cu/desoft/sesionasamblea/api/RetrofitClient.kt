@@ -1,5 +1,6 @@
 package cu.desoft.sesionasamblea.api
 
+import cu.desoft.sesionasamblea.ssl.UnsafeOkHttpClient
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -11,12 +12,14 @@ class RetrofitClient {
 
     companion object {
         const val BASE_URL = "https://asamblea-ws2.hab.desoft.cu"
+        var clients = UnsafeOkHttpClient.getUnsafeOkHttpClient()
+
         // Singleton prevents multiple instances of database opening at the
         // same time.
         @Volatile
         private var retrofit: Retrofit? = null
 
-        fun getRetrofit():Retrofit{
+        fun getRetrofit(): Retrofit {
             val interceptor = HttpLoggingInterceptor()
             interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
             val client: OkHttpClient = OkHttpClient.Builder()
@@ -27,11 +30,11 @@ class RetrofitClient {
                 retrofit = Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
-                    .client(client)
+                    .client(clients)
                     .build()
             }
             return retrofit!!
-            }
         }
     }
+}
 

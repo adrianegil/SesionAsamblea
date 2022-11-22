@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".ui.activities.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -36,148 +35,146 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:scaleType="fitXY"
-        android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline8"
         app:srcCompat="@drawable/capitolio_transparente" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/appBarLayoutMainActivity"
-        android:layout_marginBottom="80dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/txtViewDeputyName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="32dp"
-                android:text="Saint Carlo Borromeo"
-                android:textColor="@color/red"
-                android:textSize="@dimen/directorName_textView_size" />
-
-
-            <TextView
-                android:id="@+id/txtViewDeputyRegisterNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="8dp"
-                android:text="120"
-                android:textColor="@color/primary"
-                android:textSize="@dimen/directorName_textView_size" />
-
-
-            <TextView
-                android:id="@+id/txtViewDeputyAddress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:drawableLeft="@drawable/ic_location"
-                android:drawablePadding="10dp"
-                android:text="Playa, La Habana"
-                android:textColor="@color/primary"
-                android:textSize="@dimen/normal_textView_size" />
-
-
-            <TextView
-                android:id="@+id/txtViewDeputyOrganization"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:drawableLeft="@drawable/ic_maletin"
-                android:drawablePadding="10dp"
-                android:text="MICONS"
-                android:textColor="@color/primary"
-                android:textSize="@dimen/normal_textView_size" />
-
-
-            <TextView
-                android:id="@+id/txtViewDeputyDescription1"
-                style="@style/TextAppearance.AppCompat.Body2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="32dp"
-                android:justificationMode="inter_word"
-                android:text="@string/textMain1"
-                android:textSize="@dimen/normal_textView_size"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.51"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
-
-            <TextView
-                android:id="@+id/txtViewDeputyDescription2"
-                style="@style/TextAppearance.AppCompat.Body2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="32dp"
-                android:justificationMode="inter_word"
-                android:text="@string/textMain2"
-                android:textSize="@dimen/normal_textView_size"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.51"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
-
-            <TextView
-                android:id="@+id/txtViewDeputyDescription3"
-                style="@style/TextAppearance.AppCompat.Body2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="32dp"
-                android:justificationMode="inter_word"
-                android:text="@string/textMain3"
-                android:textSize="@dimen/normal_textView_size"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.51"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
-
-            <TextView
-                android:id="@+id/txtViewDeputyDescription4"
-                style="@style/TextAppearance.AppCompat.Body2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="32dp"
-                android:justificationMode="inter_word"
-                android:text="Esteban Lazo Hernández"
-                android:textSize="@dimen/normal_textView_size"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.51"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
-
-
-        </LinearLayout>
-    </ScrollView>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="Documentos a Consultar"
         android:textSize="@dimen/normal_button_textSize"
         app:cornerRadius="@dimen/normal_button_cornerRadius"
-        android:layout_centerInParent="true"
-       android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:rippleColor="@color/white" />
 
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayoutMainActivity"
+        app:layout_constraintVertical_bias="1.0">
 
-</RelativeLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtViewDeputyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Saint Carlo Borromeo"
+                android:textColor="@color/red"
+                android:textSize="@dimen/directorName_textView_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtViewDeputyPosition"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DIRECTOR GENERAL"
+                android:textSize="@dimen/directorPositionName_textView_size"
+                app:layout_constraintEnd_toEndOf="@+id/txtViewDeputyName"
+                app:layout_constraintStart_toStartOf="@+id/txtViewDeputyName"
+                app:layout_constraintTop_toBottomOf="@+id/txtViewDeputyName" />
+
+            <TextView
+                android:id="@+id/txtViewDeputyRegisterNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="120"
+                android:textSize="@dimen/directorName_textView_size"
+                app:layout_constraintEnd_toEndOf="@+id/txtViewDeputyPosition"
+                app:layout_constraintStart_toStartOf="@+id/txtViewDeputyPosition"
+                app:layout_constraintTop_toBottomOf="@+id/txtViewDeputyPosition" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="@dimen/normal_icon_width"
+                android:layout_height="@dimen/normal_icon_heigth"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/txtViewDeputyPosition"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/txtViewDeputyPosition"
+                app:layout_constraintTop_toBottomOf="@+id/txtViewDeputyRegisterNumber"
+                app:srcCompat="@drawable/ic_location" />
+
+            <TextView
+                android:id="@+id/txtViewDeputyAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Playa, La Habana"
+                android:textSize="@dimen/normal_textView_size"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+                app:layout_constraintStart_toEndOf="@+id/imageView5"
+                app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="@dimen/normal_icon_width"
+                android:layout_height="@dimen/normal_icon_heigth"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/txtViewDeputyPosition"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintStart_toStartOf="@+id/txtViewDeputyPosition"
+                app:layout_constraintTop_toBottomOf="@+id/imageView5"
+                app:srcCompat="@drawable/ic_maletin" />
+
+            <TextView
+                android:id="@+id/txtViewDeputyOrganization"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="MICONS"
+                android:textSize="@dimen/normal_textView_size"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+                app:layout_constraintStart_toEndOf="@+id/imageView6"
+                app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+            <TextView
+                android:id="@+id/txtViewDeputyDescription"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:justificationMode="inter_word"
+                android:text="@string/lorem"
+                android:textSize="@dimen/normal_textView_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

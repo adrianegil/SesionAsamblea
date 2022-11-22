@@ -1,120 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/swipeRefreshLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activities.LoginActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="450dp"
+        android:layout_height="400dp"
+        android:contentDescription="@string/image"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logoasamblea_color" />
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="450dp"
-            android:layout_height="400dp"
-            android:contentDescription="@string/image"
-            app:layout_constraintBottom_toTopOf="@+id/guideline2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logoasamblea_color" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/No_Register"
+        android:textSize="@dimen/normal_textView_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutNoRegister"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextNoRegister"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="32dp"
-            android:text="@string/No_Register"
-            android:textSize="@dimen/normal_textView_size"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            android:drawablePadding="12dp"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="number"
+            android:textSize="@dimen/normal_button_textSize" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayoutNoRegister"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/No_Folio"
+        android:textSize="@dimen/normal_textView_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNoRegister" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutNoFolio"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextNoFolio"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
-            app:passwordToggleEnabled="true">
+            android:drawablePadding="12dp"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="number"
+            android:textSize="@dimen/normal_button_textSize" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextNoRegister"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawablePadding="12dp"
-                android:imeOptions="flagNoExtractUi"
-                android:inputType="number"
-                android:textSize="@dimen/normal_button_textSize" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogIn"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/normal_button_height"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/primary"
+        android:text="@string/login"
+        android:textAlignment="center"
+        android:textSize="@dimen/normal_button_textSize"
+        app:cornerRadius="@dimen/normal_button_cornerRadius"
+        app:icon="@drawable/ic_login"
+        app:iconGravity="textEnd"
+        app:iconSize="@dimen/normal_button_iconSize"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayoutNoFolio"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayoutNoFolio"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNoFolio"
+        app:rippleColor="@color/white" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/No_Folio"
-            android:textSize="@dimen/normal_textView_size"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNoRegister" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayoutNoFolio"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"
-            app:passwordToggleEnabled="true">
+    <ProgressBar
+        android:id="@+id/progressBarLogin"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/btnLogIn"
+        app:layout_constraintStart_toStartOf="@+id/btnLogIn"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogIn" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextNoFolio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawablePadding="12dp"
-                android:imeOptions="flagNoExtractUi"
-                android:textSize="@dimen/normal_button_textSize" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnLogIn"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/normal_button_height"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/primary"
-            android:text="@string/login"
-            android:textAlignment="center"
-            android:textSize="@dimen/normal_button_textSize"
-            app:cornerRadius="@dimen/normal_button_cornerRadius"
-            app:icon="@drawable/ic_login"
-            app:iconGravity="textEnd"
-            app:iconSize="@dimen/normal_button_iconSize"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayoutNoFolio"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayoutNoFolio"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNoFolio"
-            app:rippleColor="@color/white" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.55" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -98,6 +98,7 @@
                 android:layout_height="wrap_content"
                 android:text="DIRECTOR GENERAL"
                 android:textSize="@dimen/directorPositionName_textView_size"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="@+id/txtViewDeputyName"
                 app:layout_constraintStart_toStartOf="@+id/txtViewDeputyName"
                 app:layout_constraintTop_toBottomOf="@+id/txtViewDeputyName" />
@@ -140,7 +141,6 @@
                 android:layout_width="@dimen/normal_icon_width"
                 android:layout_height="@dimen/normal_icon_heigth"
                 android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="@+id/txtViewDeputyRegisterNumber"
                 app:layout_constraintStart_toStartOf="@+id/imageView5"
                 app:layout_constraintTop_toBottomOf="@+id/imageView5"
                 app:srcCompat="@drawable/ic_maletin" />

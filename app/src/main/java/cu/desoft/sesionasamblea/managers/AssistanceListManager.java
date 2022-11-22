@@ -5,7 +5,9 @@ import android.util.Log;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import cu.desoft.sesionasamblea.data.entity.Login;
 import cu.desoft.sesionasamblea.service.AssistanceListService;
+import cu.desoft.sesionasamblea.service.LoginService;
 import cu.desoft.sesionasamblea.ssl.UnsafeOkHttpClient;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
@@ -49,5 +51,21 @@ public class AssistanceListManager {
         }
     }
 
+    public Call<JsonObject> login(Login login) {
+        try {
+            OkHttpClient clients = UnsafeOkHttpClient.getUnsafeOkHttpClient();
+            Retrofit service = new Retrofit.Builder()
+                    .baseUrl("https://asamblea-ws2.hab.desoft.cu/")
 
+                    .client(clients)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            LoginService restService = service.create(LoginService.class);
+            return restService.login(login);
+        } catch (Exception e) {
+            Log.e("TAG", e.getMessage());
+            return null;
+        }
+    }
 }

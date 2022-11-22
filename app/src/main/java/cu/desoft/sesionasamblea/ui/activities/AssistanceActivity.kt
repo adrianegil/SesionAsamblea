@@ -37,6 +37,12 @@ class AssistanceActivity : AppCompatActivity() {
         binding.recyclerListAssistance.layoutManager = LinearLayoutManager(this)
         currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
 
+        val pref = applicationContext.getSharedPreferences(
+            "MyPref",
+            MODE_PRIVATE
+        )
+         token= "token " + pref.getString("token", null).toString();
+
         binding.swipeRefreshAssistanceList.setColorSchemeResources(
             R.color.white,
             R.color.white,

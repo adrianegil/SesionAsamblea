@@ -15,6 +15,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AssistanceListManager {
+    String urlBase = "https://asamblea-ws2.hab.desoft.cu/api/";
+    String urlLogin = "https://asamblea-ws2.hab.desoft.cu/";
 
     public AssistanceListManager() {
     }
@@ -24,7 +26,7 @@ public class AssistanceListManager {
             OkHttpClient clients = UnsafeOkHttpClient.getUnsafeOkHttpClient();
             Retrofit service = new Retrofit.Builder()
                     .client(clients)
-                    .baseUrl("https://asamblea-ws2.hab.desoft.cu/api/")
+                    .baseUrl(urlBase)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             AssistanceListService restService = service.create(AssistanceListService.class);
@@ -39,7 +41,7 @@ public class AssistanceListManager {
         try {
             OkHttpClient clients = UnsafeOkHttpClient.getUnsafeOkHttpClient();
             Retrofit service = new Retrofit.Builder()
-                    .baseUrl("https://asamblea-ws2.hab.desoft.cu/api/")
+                    .baseUrl(urlBase)
                     .client(clients)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
@@ -55,7 +57,7 @@ public class AssistanceListManager {
         try {
             OkHttpClient clients = UnsafeOkHttpClient.getUnsafeOkHttpClient();
             Retrofit service = new Retrofit.Builder()
-                    .baseUrl("https://asamblea-ws2.hab.desoft.cu/")
+                    .baseUrl(urlLogin)
 
                     .client(clients)
                     .addConverterFactory(GsonConverterFactory.create())

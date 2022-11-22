@@ -30,12 +30,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun doLogin() {
-        if (binding.editTextNoFolio.text.toString().equals("", ignoreCase = true)) {
-            binding.editTextNoFolio.error = "Rquerido"
-            return
-        }
-        if (binding.editTextNoRegister.text.toString().equals("", ignoreCase = true)) {
-            binding.editTextNoRegister.error = "Requerido"
+        if (binding.editTextNoFolio.text.toString().equals("", ignoreCase = true) && binding.editTextNoRegister.text.toString().equals("", ignoreCase = true)) {
+            Toast.makeText(
+                applicationContext,
+                "Folio y Registro Requeridos",
+                Toast.LENGTH_LONG
+            ).show()
             return
         }
         retrieveDataOut()
@@ -84,16 +84,22 @@ class LoginActivity : AppCompatActivity() {
 
 
                     } else
+                    {
+                        Toast.makeText(
+                            applicationContext,
+                            "Credenciales Inválidas",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                         binding.swipeRefreshLogin.isRefreshing = false
                 }
 
                 override fun onFailure(call: Call<JsonObject?>, throwable: Throwable) {
                     Toast.makeText(
                         applicationContext,
-                        "Problemas en la conexión" + throwable.toString(),
+                        "Problemas en la conexión",
                         Toast.LENGTH_SHORT
                     ).show()
-                    Log.w("network", throwable.toString())
                     binding.swipeRefreshLogin.isRefreshing = false
 
                 }

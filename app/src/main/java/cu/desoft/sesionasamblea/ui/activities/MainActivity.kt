@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.button.setOnClickListener {
-            println("pinga")
             startActivity(Intent(this,Documents::class.java))
 //            startActivity(Intent(this, Documents::class.java))
         }

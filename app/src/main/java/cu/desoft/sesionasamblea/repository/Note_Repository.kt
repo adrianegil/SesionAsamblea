@@ -1,19 +1,25 @@
 package cu.desoft.sesionasamblea.repository
 
-import androidx.annotation.WorkerThread
+import androidx.lifecycle.LiveData
 import cu.desoft.sesionasamblea.data.dao.Note_Dao
 import cu.desoft.sesionasamblea.data.entity.Note
-import kotlinx.coroutines.flow.Flow
 
 
 class Note_Repository(private val noteDao: Note_Dao) {
 
-    val allNote: Flow<List<Note>> = noteDao.getAllNote()
 
-    @Suppress("RedundantSuspendModifier")
-    @WorkerThread
+    val allNote: LiveData<List<Note>> = noteDao.getAllNotes()
+
     suspend fun insert(note: Note) {
-        noteDao.saveNote(note)
+        noteDao.insert(note)
+    }
+
+    suspend fun delete(note: Note){
+        noteDao.delete(note)
+    }
+
+    suspend fun update(note: Note) {
+        noteDao.update(note)
     }
 
 }

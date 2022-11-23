@@ -142,7 +142,7 @@
                 android:id="@+id/textViewDESOFTPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+53 8888888"
+                android:text="+53 78694200"
                 android:textSize="@dimen/medium_textView_size"
                 app:layout_constraintEnd_toEndOf="@+id/textView10"
                 app:layout_constraintStart_toStartOf="@+id/textView10"

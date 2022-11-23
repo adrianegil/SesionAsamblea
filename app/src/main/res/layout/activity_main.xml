@@ -45,82 +45,128 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="80dp"
-        android:layout_below="@id/appBarLayoutMainActivity">
+        android:layout_below="@id/appBarLayoutMainActivity"
+        android:layout_marginBottom="80dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
 
-        android:orientation="vertical">
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtViewDeputyName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="32dp"
-            android:text="Saint Carlo Borromeo"
-            android:textColor="@color/red"
-            android:textSize="@dimen/directorName_textView_size" />
-
-
-        <TextView
-            android:id="@+id/txtViewDeputyRegisterNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp"
-            android:text="120"
-            android:textColor="@color/primary"
-            android:textSize="@dimen/directorName_textView_size" />
+            <TextView
+                android:id="@+id/txtViewDeputyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="32dp"
+                android:text="Saint Carlo Borromeo"
+                android:textColor="@color/red"
+                android:textSize="@dimen/directorName_textView_size" />
 
 
-        <TextView
-            android:id="@+id/txtViewDeputyAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:drawableLeft="@drawable/ic_location"
-            android:drawablePadding="10dp"
-            android:text="Playa, La Habana"
-            android:textColor="@color/primary"
-            android:textSize="@dimen/normal_textView_size" />
+            <TextView
+                android:id="@+id/txtViewDeputyRegisterNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="120"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/directorName_textView_size" />
 
 
-        <TextView
-            android:id="@+id/txtViewDeputyOrganization"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:drawableLeft="@drawable/ic_maletin"
-            android:drawablePadding="10dp"
-            android:text="MICONS"
-            android:textColor="@color/primary"
-            android:textSize="@dimen/normal_textView_size" />
+            <TextView
+                android:id="@+id/txtViewDeputyAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/ic_location"
+                android:drawablePadding="10dp"
+                android:text="Playa, La Habana"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/normal_textView_size" />
 
 
-        <TextView
-            android:id="@+id/txtViewDeputyDescription"
-            style="@style/TextAppearance.AppCompat.Body2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
-            android:justificationMode="inter_word"
-            android:text="@string/lorem"
-            android:textSize="@dimen/normal_textView_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.51"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+            <TextView
+                android:id="@+id/txtViewDeputyOrganization"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/ic_maletin"
+                android:drawablePadding="10dp"
+                android:text="MICONS"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/normal_textView_size" />
 
 
+            <TextView
+                android:id="@+id/txtViewDeputyDescription1"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:justificationMode="inter_word"
+                android:text="@string/textMain1"
+                android:textSize="@dimen/normal_textView_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+            <TextView
+                android:id="@+id/txtViewDeputyDescription2"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:justificationMode="inter_word"
+                android:text="@string/textMain2"
+                android:textSize="@dimen/normal_textView_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+            <TextView
+                android:id="@+id/txtViewDeputyDescription3"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:justificationMode="inter_word"
+                android:text="@string/textMain3"
+                android:textSize="@dimen/normal_textView_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+            <TextView
+                android:id="@+id/txtViewDeputyDescription4"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:justificationMode="inter_word"
+                android:text="Esteban Lazo Hernández"
+                android:textSize="@dimen/normal_textView_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
 
-    </LinearLayout>
-</ScrollView>
+        </LinearLayout>
+    </ScrollView>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button"

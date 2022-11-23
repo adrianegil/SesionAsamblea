@@ -73,7 +73,10 @@
         android:textSize="@dimen/normal_textView_size"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDescription"
+        app:layout_constraintVertical_bias="0.56" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline9"
@@ -136,7 +139,7 @@
         android:id="@+id/textViewDESOFTPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="+53 8888888"
+        android:text="+53 78694200"
         android:textSize="@dimen/medium_textView_size"
         app:layout_constraintEnd_toEndOf="@+id/textView10"
         app:layout_constraintStart_toStartOf="@+id/textView10"

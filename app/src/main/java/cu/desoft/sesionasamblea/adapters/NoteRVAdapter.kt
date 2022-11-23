@@ -30,7 +30,7 @@ class NoteRVAdapter(
         val dateTV = itemView.findViewById<TextView>(R.id.idTVDate)
         val deleteIV = itemView.findViewById<ImageView>(R.id.idIVDelete)
     }
-
+//test
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // inflating our layout file for each item of recycler view.
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_view_note,

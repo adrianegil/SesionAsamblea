@@ -5,9 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import cu.desoft.sesionasamblea.data.entity.Document
 import cu.desoft.sesionasamblea.databinding.ItemDocumentBinding
+import cu.desoft.sesionasamblea.utils.ClikPdf
 import cu.desoft.sesionasamblea.utils.ItemClick
 
-class DocumetAdapter (val listDocument: List<Document>, val itemClick: ItemClick): RecyclerView.Adapter<DocumetAdapter.ViewHolder>(){
+class DocumetAdapter (val listDocument: List<String>, val itemClick: ItemClick, val  click: ClikPdf): RecyclerView.Adapter<DocumetAdapter.ViewHolder>(){
 
     inner class ViewHolder(val binding: ItemDocumentBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -20,9 +21,12 @@ class DocumetAdapter (val listDocument: List<Document>, val itemClick: ItemClick
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder){
             with(listDocument[position]){
-                binding.documentName.text = this.nameDocuments
+                binding.documentName.text = this
                 binding.noteDocument.setOnClickListener {
                     itemClick.clicked(position)
+                }
+                binding.downloadDocument.setOnClickListener {
+                    click.clicked(position)
                 }
             }
         }
@@ -31,4 +35,5 @@ class DocumetAdapter (val listDocument: List<Document>, val itemClick: ItemClick
     override fun getItemCount(): Int {
         return listDocument.size
     }
+
 }

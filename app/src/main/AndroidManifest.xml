@@ -1,31 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="cu.desoft.sesionasamblea">
 
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+
     <application
         android:name=".SesionAsambleaApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:networkSecurityConfig="@xml/network_security_config"
+        android:theme="@style/Theme.SesiónAsamblea"
         android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.SesiónAsamblea">
+        tools:targetApi="n">
+        <activity
+            android:name=".NoteDocument"
+            android:exported="false" />
         <activity
             android:name=".ui.activities.Documents"
             android:exported="false"
-            android:parentActivityName=".ui.activities.MainActivity"/>
+            android:parentActivityName=".ui.activities.MainActivity" />
         <activity
             android:name=".ui.activities.NotepadActivity"
             android:exported="true"
-            android:parentActivityName=".ui.activities.NotepadActivity"/>
+            android:parentActivityName=".ui.activities.NotepadActivity" />
         <activity
             android:name=".ui.activities.AddNoteActivity"
             android:exported="false"
-            android:parentActivityName=".ui.activities.AddNoteActivity"/>
+            android:parentActivityName=".ui.activities.AddNoteActivity" />
         <activity
             android:name=".ui.activities.DescriptionActivity"
             android:exported="false"
@@ -53,6 +70,7 @@
         <activity
             android:name=".ui.activities.MainActivity"
             android:exported="true" />
+
         <receiver
             android:name=".service.NetworkReceiver"
             android:enabled="false"
@@ -62,6 +80,16 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
     </application>
 
 </manifest>

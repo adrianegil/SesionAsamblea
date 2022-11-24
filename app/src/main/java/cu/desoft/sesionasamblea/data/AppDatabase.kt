@@ -12,7 +12,7 @@ import cu.desoft.sesionasamblea.data.entity.Document
 import cu.desoft.sesionasamblea.data.entity.Note
 import kotlinx.coroutines.CoroutineScope
 
-@Database(entities = [Note::class, Document::class], version = 2, exportSchema = false)
+@Database(entities = [Note::class, Document::class], version = 10, exportSchema = false)
 @TypeConverters(
     DateConverter::class
 )

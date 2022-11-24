@@ -9,6 +9,8 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -52,7 +54,7 @@ class Documents : AppCompatActivity() {
        documetAdapter = DocumetAdapter(documentoList.toList(),object : ItemClick{
             override fun clicked(pos: Int) {
                 val intent = Intent(this@Documents,NoteDocument::class.java)
-                intent.putExtra("id",pos)
+                intent.putExtra("id",pos + 1)
                 startActivity(intent)
             }
         }, object : ClikPdf{
@@ -127,4 +129,23 @@ class Documents : AppCompatActivity() {
             }
         }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_addnote, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        return when (item.itemId) {
+            R.id.nav_NoteAdd -> {
+                startActivity(Intent(this, AddNoteActivity::class.java))
+                true
+            }
+            else -> {
+                false
+            }
+        }
+    }
+
 }

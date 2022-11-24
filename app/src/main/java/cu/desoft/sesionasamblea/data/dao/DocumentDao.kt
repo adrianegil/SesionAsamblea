@@ -15,11 +15,11 @@ interface DocumentDao {
     fun getDocumentsByID(documentID: Int): Document
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertDocument(document: Document)
+     fun insertDocument(document: Document)
 
     @Query("DELETE FROM document WHERE documentID = (:documentID)")
-    suspend fun deleteDocumentFromID(documentID: Int)
+     fun deleteDocumentFromID(documentID: Int)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun updateDocument(document: Document)
+     fun updateDocument(document: Document)
 }

@@ -29,8 +29,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
         <activity
-            android:name=".NoteDocument"
-            android:exported="false" />
+            android:name=".ui.activities.NoteDocument"
+            android:exported="false"
+            android:parentActivityName=".ui.activities.Documents" />
         <activity
             android:name=".ui.activities.Documents"
             android:exported="false"

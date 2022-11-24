@@ -1,7 +1,9 @@
 package cu.desoft.sesionasamblea.ui.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import cu.desoft.sesionasamblea.R
 import cu.desoft.sesionasamblea.SesionAsambleaApp
@@ -18,6 +20,8 @@ class NoteDocument : AppCompatActivity() {
 
     lateinit var binding: ActivityNoteDocumentBinding
 
+     var document: Document = Document(0,null,null)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_note_document)
@@ -25,11 +29,38 @@ class NoteDocument : AppCompatActivity() {
         binding = ActivityNoteDocumentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val document =  documentViewModel.getDocById(intent.getIntExtra("id", 0))
-        binding.notedocumettext.setText(document.noteDoc)
+        Log.d("id", intent.getIntExtra("id",0).toString())
+
+        documentViewModel.allDocument.observe(this){
+            it.map { doc->
+                if (doc.documentID == intent.getIntExtra("id",0)){
+                    document = doc
+                    binding.notedocumettext.setText(doc.noteDoc)
+
+                }
+            }
+        }
+
+//        binding.notedocumettext.setText(document.noteDoc)
 
         binding.noteSave.setOnClickListener {
-            documentViewModel.insertDocument(Document(intent.getIntExtra("id", 0),binding.notedocumettext.text.toString()))
+            if(document.noteDoc == null){
+                documentViewModel.addddddNote(Document(intent.getIntExtra("id", 0),null,binding.notedocumettext.text.toString()))
+            }
+
+            if(document.noteDoc !=null){
+                Log.d("idsssss", intent.getIntExtra("id", 0).toString())
+                documentViewModel.addNote(
+                    Document(
+                        intent.getIntExtra("id", 0),
+                        null,
+                        binding.notedocumettext.text.toString()
+                    )
+                )
+            }
+
+        val intent = Intent(this@NoteDocument,Documents::class.java)
+            startActivity(intent)
         }
 
     }

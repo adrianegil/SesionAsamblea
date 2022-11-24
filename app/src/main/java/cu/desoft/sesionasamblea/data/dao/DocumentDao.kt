@@ -21,5 +21,5 @@ interface DocumentDao {
     suspend fun deleteDocumentFromID(documentID: Int)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun updateTicket(document: Document)
+    suspend fun updateDocument(document: Document)
 }

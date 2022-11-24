@@ -19,7 +19,7 @@ class DocumentRepository(private  val documentDao: DocumentDao) {
     }
 
     suspend fun updateTicket(document: Document){
-        documentDao.updateTicket(document)
+        documentDao.updateDocument(document)
     }
 
     suspend fun deleTicket(documentID: Int){

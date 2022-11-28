@@ -50,7 +50,7 @@
                 android:insetTop="0dp"
                 android:insetRight="0dp"
                 android:insetBottom="0dp"
-                app:icon="@drawable/ic_baseline_arrow_downward_24"
+                app:icon="@drawable/ic_baseline_remove_red_eye_24"
                 app:iconSize="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

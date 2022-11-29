@@ -5,12 +5,11 @@ import android.content.ActivityNotFoundException
 import android.content.ClipData
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -49,6 +48,17 @@ class Documents : AppCompatActivity() {
         isReadStoragePermissionGranted()
 
         val documentoList = resources.getStringArray(R.array.Documents_name)
+
+        binding.gotonote.setOnClickListener {
+            startActivity(Intent(this, NotepadActivity::class.java))
+        }
+
+        binding.docBrowser.setOnClickListener {
+
+            //poner url
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"))
+            startActivity(browserIntent)
+        }
 
 
        documetAdapter = DocumetAdapter(documentoList.toList(),object : ItemClick{
@@ -130,22 +140,22 @@ class Documents : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_addnote, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-        return when (item.itemId) {
-            R.id.nav_NoteAdd -> {
-                startActivity(Intent(this, AddNoteActivity::class.java))
-                true
-            }
-            else -> {
-                false
-            }
-        }
-    }
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.main_addnote, menu)
+//        return true
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//
+//        return when (item.itemId) {
+//            R.id.nav_NoteAdd -> {
+//                startActivity(Intent(this, AddNoteActivity::class.java))
+//                true
+//            }
+//            else -> {
+//                false
+//            }
+//        }
+//    }
 
 }

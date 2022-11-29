@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.afollestad.materialdialogs.MaterialDialog
 import com.google.android.material.button.MaterialButton
 import cu.desoft.sesionasamblea.R
 import cu.desoft.sesionasamblea.adapters.NoteClickDeleteInterface
@@ -64,7 +65,23 @@ class NotepadActivity : AppCompatActivity(), NoteClickInterface, NoteClickDelete
     }
 
     override fun onDeleteIconClick(note: Note) {
-        viewModal.deleteNote(note)
-        Toast.makeText(this,"${note.noteTitle} Eliminada", Toast.LENGTH_LONG).show()
+
+
+        MaterialDialog(this).show {
+            this.title(text = "Eliminar")
+            this.message(text = "¿Desea eliminar la nota?")
+
+            positiveButton(text = "Aceptar")
+
+            negativeButton(text =  "Cancelar")
+
+            positiveButton {
+                        viewModal.deleteNote(note)
+                Toast.makeText(this@NotepadActivity,"${note.noteTitle} Eliminada", Toast.LENGTH_LONG).show()
+            }
+            negativeButton {
+                this.dismiss()
+            }
+        }
     }
 }

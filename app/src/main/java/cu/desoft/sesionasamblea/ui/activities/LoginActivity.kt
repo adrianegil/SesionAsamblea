@@ -70,7 +70,7 @@ class LoginActivity : AppCompatActivity() {
                         editor.putString("nombre", diputado.asJsonObject["nombre"].asString)
                         editor.putString("registro", diputado.asJsonObject["registro"].asString)
                         editor.putString("provincia", diputado.asJsonObject["provincia"].asString)
-                        editor.putString("organismo", diputado.asJsonObject["organismo"].asString)
+//                        editor.putString("organismo", diputado.asJsonObject["organismo"].asString)
                         editor.commit()
 
 

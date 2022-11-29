@@ -79,4 +79,7 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:2.3.0"
     testImplementation "androidx.room:room-testing:2.3.0"
     kapt "androidx.room:room-compiler:2.3.0"
+
+    //material dialog
+    implementation 'com.afollestad.material-dialogs:core:3.3.0'
 }

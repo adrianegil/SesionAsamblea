@@ -11,6 +11,7 @@ import cu.desoft.sesionasamblea.R
 import cu.desoft.sesionasamblea.SesionAsambleaApp
 import cu.desoft.sesionasamblea.api.Login_API
 import cu.desoft.sesionasamblea.api.RetrofitClient
+import cu.desoft.sesionasamblea.data.entity.Deputy
 import cu.desoft.sesionasamblea.data.model.Login_Model
 import cu.desoft.sesionasamblea.databinding.ActivityLoginBinding
 import cu.desoft.sesionasamblea.ui.viewmodels.DeputyViewModel
@@ -56,30 +57,38 @@ class LoginActivity : AppCompatActivity() {
 
         var Login_API = RetrofitClient.getRetrofit().create(Login_API::class.java)
 
-        val call: Call<Login_Model> = Login_API.LogIn(Login(78042125416, "543423.A"))
+        val call: Call<Login_Model> = Login_API.LogIn(
+            Login(
+                binding.editTextNoRegister.text.toString(),
+                binding.editTextNoFolio.text.toString()
+            )
+        )
 
         call.enqueue(object : Callback<Login_Model?> {
             override fun onResponse(call: Call<Login_Model?>, response: Response<Login_Model?>) {
                 Log.e("Body", response.code().toString())
                 if (response.isSuccessful) {
                     var loginModel = response.body() as Login_Model
-                    // Log.e("Body", loginModel.token)
                     UserHelper.saveToken(loginModel.token, this@LoginActivity)
-                    /*
-                      Log.e("Body", loginModel.deputy?.name.toString())
-                      Log.e("Body", loginModel.deputy?.organization.toString())
-                      Log.e("Body", loginModel.deputy?.province.toString())
-                      Log.e("Body", loginModel.deputy?.register.toString())
-                     */
-                    deputyViewModel.insertDeputy(loginModel.deputy!!)
+
+                    var deputy = Deputy()
+                    deputy.name = loginModel.deputy?.name.toString()
+                    deputy.organization = loginModel.deputy?.organization.toString()
+                    deputy.province = loginModel.deputy?.province.toString()
+                    deputy.ci = loginModel.deputy?.ci.toString()
+                    deputy.folio = loginModel.deputy?.folio.toString()
+                    deputy.register = loginModel.deputy?.register!!
+
+                    deputyViewModel.insertDeputy(deputy)
                     UserHelper.saveDeputyRegister(loginModel.deputy!!.register, this@LoginActivity)
                     goToMainActivity()
-                } else if (response.code() == 401 || response.code() == 500) {
+
+                } else if (response.code() == 401 || response.code() == 400 || response.code() == 500) {
                     Toast.makeText(
                         this@LoginActivity,
                         getString(R.string.failed_authentication),
                         Toast.LENGTH_SHORT
-                    )
+                    ).show()
                     binding.editTextNoRegister.setText("")
                     binding.editTextNoFolio?.setText("")
                     binding.progressBarLogin.visibility = View.INVISIBLE

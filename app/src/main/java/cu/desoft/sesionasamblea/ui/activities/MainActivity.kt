@@ -2,6 +2,7 @@ package cu.desoft.sesionasamblea.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
@@ -11,7 +12,7 @@ import cu.desoft.sesionasamblea.SesionAsambleaApp
 import cu.desoft.sesionasamblea.adapters.DocumetAdapter
 import cu.desoft.sesionasamblea.data.entity.Deputy
 import cu.desoft.sesionasamblea.databinding.ActivityMainBinding
-import cu.desoft.sesionasamblea.ui.activitie.AssistanceActivity
+import cu.desoft.sesionasamblea.ui.activities.AssistanceActivity
 import cu.desoft.sesionasamblea.ui.viewmodels.DeputyViewModel
 import cu.desoft.sesionasamblea.utils.ItemClick
 import cu.desoft.sesionasamblea.utils.UserHelper
@@ -43,6 +44,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
+        if (UserHelper.getDeputyRegister(this).toInt() != 167)
+            menu?.findItem(R.id.nav_Assistance)?.setVisible(false)
+
         return true
     }
 
@@ -58,7 +62,6 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             else -> {
-                deputyViewModel.deleteAllDeputies()
                 startActivity(Intent(this, LoginActivity::class.java))
                 finish()
                 true

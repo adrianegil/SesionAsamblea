@@ -15,6 +15,7 @@
                 android:gravity="bottom"
                 android:layout_marginLeft="10dp"
                 android:text="AleJandro"
+               style="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="20dp" />
             <TextView
                 android:id="@+id/text_number"
@@ -24,6 +25,7 @@
                 android:layout_below="@+id/text_name"
                 android:layout_marginLeft="10dp"
                 android:text="100"
+                style="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16dp" />
 
 </RelativeLayout>

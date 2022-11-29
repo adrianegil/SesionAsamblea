@@ -21,4 +21,8 @@ class Deputy_Repository(private val deputyDao: Deputy_Dao) {
     suspend fun updateDeputy(deputy: Deputy) {
         deputyDao.updateDeputy(deputy)
     }
+
+    suspend fun deleteDeputyByRegister(deputyRegister: Long) {
+        deputyDao.deleteDeputyByRegister(deputyRegister)
+    }
 }

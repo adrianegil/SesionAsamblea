@@ -13,6 +13,7 @@ import cu.desoft.sesionasamblea.databinding.AssistanceActivityBinding
 import cu.desoft.sesionasamblea.logic.Assistance
 import cu.desoft.sesionasamblea.managers.AssistanceListManager
 import cu.desoft.sesionasamblea.ui.notepad.AssistanceAdapter
+import cu.desoft.sesionasamblea.utils.UserHelper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,11 +38,7 @@ class AssistanceActivity : AppCompatActivity() {
         binding.recyclerListAssistance.layoutManager = LinearLayoutManager(this)
         currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
 
-        val pref = applicationContext.getSharedPreferences(
-            "MyPref",
-            MODE_PRIVATE
-        )
-         token= "token " + pref.getString("token", null).toString();
+         token= "token " + UserHelper.getToken(this)
 
         binding.swipeRefreshAssistanceList.setColorSchemeResources(
             R.color.white,

@@ -34,6 +34,12 @@ class DeputyViewModel(private val repository: Deputy_Repository) : ViewModel() {
         }
     }
 
+    fun deleteDeputyByRegister(register: Long) {
+        viewModelScope.launch {
+            repository.getDeputyByRegister(register)
+        }
+    }
+
     class DeputyViewModelFactory(private val repository: Deputy_Repository) :
         ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {

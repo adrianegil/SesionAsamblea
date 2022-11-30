@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.NotepadActivity"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".ui.activities.NotepadActivity">
 
     <ImageView
         android:id="@+id/imageView4"
@@ -31,7 +31,7 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/PopupTheme"
             app:title="Notas"
-            app:titleTextColor="@android:color/white"/>
+            app:titleTextColor="@android:color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

@@ -2,21 +2,15 @@ package cu.desoft.sesionasamblea.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import cu.desoft.sesionasamblea.R
 import cu.desoft.sesionasamblea.SesionAsambleaApp
-import cu.desoft.sesionasamblea.adapters.DocumetAdapter
-import cu.desoft.sesionasamblea.data.entity.Deputy
 import cu.desoft.sesionasamblea.databinding.ActivityMainBinding
-import cu.desoft.sesionasamblea.ui.activities.AssistanceActivity
 import cu.desoft.sesionasamblea.ui.viewmodels.DeputyViewModel
-import cu.desoft.sesionasamblea.utils.ItemClick
 import cu.desoft.sesionasamblea.utils.UserHelper
-import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         }
         deputyViewModel.getDeputyByRegister(UserHelper.getDeputyRegister(this)).observe(this) {
             binding.txtViewDeputyName.text = it.name
-            binding.txtViewDeputyOrganization.text = it.organization
             binding.txtViewDeputyAddress.text = it.province
             binding.txtViewDeputyRegisterNumber.text = it.register.toString()
         }

@@ -23,6 +23,5 @@ class AboutActivity : AppCompatActivity() {
         binding.btnDescription.setOnClickListener {
             startActivity(Intent(this, DescriptionActivity::class.java))
         }
-
     }
 }

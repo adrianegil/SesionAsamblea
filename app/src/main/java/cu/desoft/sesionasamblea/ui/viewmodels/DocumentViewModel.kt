@@ -6,21 +6,23 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import cu.desoft.sesionasamblea.data.entity.Document
 import cu.desoft.sesionasamblea.repository.DocumentRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class DocumentViewModel(private val repository: DocumentRepository) : ViewModel() {
 
     val allDocument = repository.getAllDocument().asLiveData()
 
-    fun getDocumenttById(documentID: Int): Document {
-        return repository.getDocumentsById(documentID)
-    }
+//    fun  getDocById(id : Int): Document{
+//        return  repository.getDocumentsById(id)
+//    }
 
-    fun insertDocument(document: Document) {
-        viewModelScope.launch {
-            repository.insertDocument(document)
-        }
-    }
+    fun addNote(document: Document) =
+        viewModelScope.launch(Dispatchers.IO) { repository.updateTicket(document) }
+
+    fun addddddNote(document: Document) =
+        viewModelScope.launch(Dispatchers.IO) { repository.insertDocument(document) }
+
 
     class DocumentViewModelFactory(private val repository: DocumentRepository) :
         ViewModelProvider.Factory {

@@ -185,6 +185,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline10"
                 app:srcCompat="@drawable/logo_entumovil" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

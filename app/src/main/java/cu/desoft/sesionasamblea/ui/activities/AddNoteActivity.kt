@@ -1,6 +1,5 @@
 package cu.desoft.sesionasamblea.ui.activities
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -67,8 +66,8 @@ class AddNoteActivity : AppCompatActivity() {
                 if (noteTitle.isNotEmpty() && noteDescription.isNotEmpty()) {
                     val sdf = SimpleDateFormat("dd MMM, yyyy - HH:mm")
                     val currentDateAndTime: String = sdf.format(Date())
-                    noteID = intent.getIntExtra("noteID",0)
-                    val updatedNote = Note(noteID,noteTitle, noteDescription, currentDateAndTime,)
+                    noteID = intent.getIntExtra("noteID", 0)
+                    val updatedNote = Note(noteID, noteTitle, noteDescription, currentDateAndTime)
 
                     viewModal.updateNote(updatedNote)
                     Toast.makeText(this, "Nota Actualizada..", Toast.LENGTH_LONG).show()
@@ -79,8 +78,8 @@ class AddNoteActivity : AppCompatActivity() {
                     val currentDateAndTime: String = sdf.format(Date())
                     // if the string is not empty we are calling a
                     // add note method to add data to our room database.
-                    noteID = intent.getIntExtra("noteID",0)
-                    viewModal.addNote(Note(noteID,noteTitle, noteDescription, currentDateAndTime))
+                    noteID = intent.getIntExtra("noteID", 0)
+                    viewModal.addNote(Note(noteID, noteTitle, noteDescription, currentDateAndTime))
                     Toast.makeText(this, "$noteTitle Añadida", Toast.LENGTH_LONG).show()
                 }
             }

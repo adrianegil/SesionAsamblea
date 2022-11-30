@@ -9,4 +9,5 @@ class Document (
     @PrimaryKey(autoGenerate = true)
     val documentID: Int,
     @ColumnInfo(name = "name") val nameDocuments: String?,
+    @ColumnInfo(name = "noteDoc") val noteDoc: String?,
 )

@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import cu.desoft.sesionasamblea.data.dao.Note_Dao
 import cu.desoft.sesionasamblea.data.entity.Note
 
-
 class Note_Repository(private val noteDao: Note_Dao) {
 
 
@@ -14,7 +13,7 @@ class Note_Repository(private val noteDao: Note_Dao) {
         noteDao.insert(note)
     }
 
-    suspend fun delete(note: Note){
+    suspend fun delete(note: Note) {
         noteDao.delete(note)
     }
 

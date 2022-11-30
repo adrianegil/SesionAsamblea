@@ -16,7 +16,7 @@ import kotlinx.coroutines.CoroutineScope
 
 @Database(
     entities = [Note::class, Document::class, Deputy::class],
-    version = 2,
+    version = 1,
     exportSchema = false
 )
 @TypeConverters(

@@ -4,7 +4,6 @@ import cu.desoft.sesionasamblea.data.model.Login_Model
 import cu.desoft.sesionasamblea.utils.Login
 import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface Login_API {

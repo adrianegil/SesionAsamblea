@@ -4,11 +4,9 @@
 
     <item
         android:id="@+id/nav_NoteAdd"
-        android:title=""
         android:icon="@drawable/ic_baseline_note_add_24"
+        android:title=""
         android:visible="true"
-        
-        app:showAsAction="always"/>
-
+        app:showAsAction="always" />
 
 </menu>

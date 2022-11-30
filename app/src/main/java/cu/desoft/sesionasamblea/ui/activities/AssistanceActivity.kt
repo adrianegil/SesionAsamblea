@@ -38,7 +38,7 @@ class AssistanceActivity : AppCompatActivity() {
         binding.recyclerListAssistance.layoutManager = LinearLayoutManager(this)
         currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
 
-         token= "token " + UserHelper.getToken(this)
+        token = "token " + UserHelper.getToken(this)
 
         binding.swipeRefreshAssistanceList.setColorSchemeResources(
             R.color.white,
@@ -62,8 +62,6 @@ class AssistanceActivity : AppCompatActivity() {
         }
 
         retrieveData()
-
-
 
         binding.cardPresent.setOnClickListener {
             onClickPresent()
@@ -169,8 +167,6 @@ class AssistanceActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
             binding.swipeRefreshAssistanceList.isRefreshing = false
-
-
         }
     }
 

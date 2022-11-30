@@ -1,7 +1,5 @@
 package cu.desoft.sesionasamblea.ui.notepad
 
-
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,8 +7,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cu.desoft.sesionasamblea.R
 import cu.desoft.sesionasamblea.logic.Assistance
-
-
 
 class AssistanceAdapter(private val mList: List<Assistance>) : RecyclerView.Adapter<AssistanceAdapter.ViewHolder>() {
 
@@ -34,7 +30,6 @@ class AssistanceAdapter(private val mList: List<Assistance>) : RecyclerView.Adap
 
         // sets the text to the textview from our itemHolder class
         holder.number.setText(ItemsViewModel.number);
-
     }
 
     // return the number of the items in the list

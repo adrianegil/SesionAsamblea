@@ -2,7 +2,6 @@ package cu.desoft.sesionasamblea.managers;
 
 import android.util.Log;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import cu.desoft.sesionasamblea.data.entity.Login;
@@ -21,7 +20,7 @@ public class AssistanceListManager {
     public AssistanceListManager() {
     }
 
-    public Call<JsonObject> getAssistance(String date,String token) {
+    public Call<JsonObject> getAssistance(String date, String token) {
         try {
             OkHttpClient clients = UnsafeOkHttpClient.getUnsafeOkHttpClient();
             Retrofit service = new Retrofit.Builder()
@@ -30,7 +29,7 @@ public class AssistanceListManager {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             AssistanceListService restService = service.create(AssistanceListService.class);
-            return restService.getAssistance(date,token);
+            return restService.getAssistance(date, token);
         } catch (Exception e) {
             Log.e("TAG", e.getMessage());
             return null;
@@ -46,7 +45,7 @@ public class AssistanceListManager {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             AssistanceListService restService = service.create(AssistanceListService.class);
-            return restService.getOut(date,token);
+            return restService.getOut(date, token);
         } catch (Exception e) {
             Log.e("TAG", e.getMessage());
             return null;

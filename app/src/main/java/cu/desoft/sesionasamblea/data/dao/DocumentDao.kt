@@ -4,7 +4,6 @@ import androidx.room.*
 import cu.desoft.sesionasamblea.data.entity.Document
 import kotlinx.coroutines.flow.Flow
 
-
 @Dao
 interface DocumentDao {
 
@@ -15,11 +14,11 @@ interface DocumentDao {
     fun getDocumentsByID(documentID: Int): Document
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertDocument(document: Document)
+    fun insertDocument(document: Document)
 
     @Query("DELETE FROM document WHERE documentID = (:documentID)")
-    suspend fun deleteDocumentFromID(documentID: Int)
+    fun deleteDocumentFromID(documentID: Int)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun updateTicket(document: Document)
+    fun updateDocument(document: Document)
 }

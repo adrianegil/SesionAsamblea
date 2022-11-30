@@ -5,14 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import cu.desoft.sesionasamblea.data.entity.Deputy
-import cu.desoft.sesionasamblea.data.entity.Document
 import cu.desoft.sesionasamblea.repository.Deputy_Repository
-import cu.desoft.sesionasamblea.repository.DocumentRepository
 import kotlinx.coroutines.launch
 
 class DeputyViewModel(private val repository: Deputy_Repository) : ViewModel() {
 
-     fun getDeputyByRegister(deputyRegister: Long): LiveData<Deputy> {
+    fun getDeputyByRegister(deputyRegister: Long): LiveData<Deputy> {
         return repository.getDeputyByRegister(deputyRegister)
     }
 

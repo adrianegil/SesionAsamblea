@@ -1,6 +1,5 @@
 package cu.desoft.sesionasamblea.data.model
 
-import androidx.room.ColumnInfo
 import com.google.gson.annotations.SerializedName
 import cu.desoft.sesionasamblea.data.entity.Deputy
 

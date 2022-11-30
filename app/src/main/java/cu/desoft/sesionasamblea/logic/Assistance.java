@@ -12,7 +12,8 @@ public class Assistance {
     public String getName() {
         return name;
     }
-     public String getNumber() {
+
+    public String getNumber() {
         return number;
     }
 

@@ -1,8 +1,8 @@
 package cu.desoft.sesionasamblea.data.entity
 
-import androidx.annotation.IntegerRes
-import androidx.room.*
-import com.google.gson.annotations.SerializedName
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity(tableName = "notesTable")
 class Note(

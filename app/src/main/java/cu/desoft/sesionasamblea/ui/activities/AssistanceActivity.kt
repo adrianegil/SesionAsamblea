@@ -27,6 +27,8 @@ class AssistanceActivity : AppCompatActivity() {
     private var assistanceListOut: ArrayList<Assistance> = arrayListOf()
     var currentDate: String = ""
     var token: String = "token 8ec51928bf8096226f3aba3f0cd00b6404feecee"
+    var countPresent = 0
+    var countAusent = 0
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -83,6 +85,7 @@ class AssistanceActivity : AppCompatActivity() {
                         val present = response.body()!!.asJsonObject["results"].asJsonArray
                         binding.countPresents.text =
                             response.body()!!.asJsonObject["count"].asString
+                        countPresent = response.body()!!.asJsonObject["count"].asInt;
                         assistanceList = java.util.ArrayList<Assistance>()
                         for (x in 0 until present.size()) {
                             val element = present[x]
@@ -132,6 +135,7 @@ class AssistanceActivity : AppCompatActivity() {
                     if (null != response.body() && response.code() == 200) {
                         val present = response.body()!!.asJsonObject["results"].asJsonArray
                         binding.countOut.text = response.body()!!.asJsonObject["count"].asString
+                        countAusent = response.body()!!.asJsonObject["count"].asInt;
                         assistanceListOut = java.util.ArrayList<Assistance>()
                         for (x in 0 until present.size()) {
                             val element = present[x]
@@ -139,8 +143,9 @@ class AssistanceActivity : AppCompatActivity() {
                             val number = element.asJsonObject["folio"].asString
                             assistanceListOut.add(Assistance(name, number))
                         }
-                        val total = assistanceList.size + assistanceListOut.size
-                        val porcent = assistanceList.size * 100 / total
+                        val total = countPresent + countAusent
+                        val porcent = countPresent * 100 / total
+                        Log.w("Porcent", total.toString() + " " + porcent.toString())
                         binding.countTotalPercent.text = (porcent).toString() + "%"
                         binding.swipeRefreshAssistanceList.isRefreshing = false
 

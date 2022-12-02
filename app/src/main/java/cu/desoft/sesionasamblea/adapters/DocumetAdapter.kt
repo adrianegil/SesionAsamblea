@@ -21,7 +21,7 @@ class DocumetAdapter(val listDocument: List<String>, val itemClick: ItemClick, v
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder) {
             with(listDocument[position]) {
-                binding.documentName.text = this
+                binding.documentName.text = (position + 1).toString() + ". " + this
                 binding.noteDocument.setOnClickListener {
                     itemClick.clicked(position)
                 }

@@ -55,7 +55,8 @@ class Documents : AppCompatActivity() {
         binding.docBrowser.setOnClickListener {
 
             //poner url
-            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"))
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://p-sesiones.anpp.gob.cu/documentos/"))
             startActivity(browserIntent)
         }
 
@@ -82,7 +83,7 @@ class Documents : AppCompatActivity() {
 
         // Get the File location and file name.
         val file = File(Environment.getExternalStorageDirectory(), "Documentos Asamblea/${doc}.pdf")
-        Log.d("pdfFIle", "" + file)
+        Log.d("pdfFIle", "" + doc + file)
 
         // Get the URI Path of file.
         val uriPdfPath =

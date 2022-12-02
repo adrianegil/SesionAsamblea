@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 class RetrofitClient {
 
     companion object {
-        const val BASE_URL = "https://asamblea-ws2.hab.desoft.cu"
+        const val BASE_URL = "https://p-sesiones.anpp.gob.cu"
         var clients = UnsafeOkHttpClient.getUnsafeOkHttpClient()
 
         // Singleton prevents multiple instances of database opening at the

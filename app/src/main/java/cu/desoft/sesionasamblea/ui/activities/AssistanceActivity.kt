@@ -17,8 +17,10 @@ import cu.desoft.sesionasamblea.utils.UserHelper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.round
 
 class AssistanceActivity : AppCompatActivity() {
 
@@ -144,11 +146,12 @@ class AssistanceActivity : AppCompatActivity() {
                             assistanceListOut.add(Assistance(name, number))
                         }
                         val total = countPresent + countAusent
-                        val porcent = countPresent * 100 / total
+                        val porcent: Float = countPresent.toFloat() * 100 / total
                         Log.w("Porcent", total.toString() + " " + porcent.toString())
-                        binding.countTotalPercent.text = (porcent).toString() + "%"
+                        val formatPorcent = DecimalFormat("#.##")
+                        binding.countTotalPercent.text =
+                            (formatPorcent.format(porcent)).toString() + "%"
                         binding.swipeRefreshAssistanceList.isRefreshing = false
-
 
                     } else
                         binding.swipeRefreshAssistanceList.isRefreshing = false

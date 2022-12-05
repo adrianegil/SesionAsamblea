@@ -1,115 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="Documents_name">
-        <item>Orden del Día y Programa Décimo POS</item>
-        <item>Informe perfecc. MINCIN 2022</item>
-        <item>Proyecto de Ley de la FGR</item>
-        <item>Decretos Leyes y Acuerdos del Consejo de Estado</item>
-        <item>Informe Rendición de Cuenta Consejo de Estado</item>
-        <item>Informe Rend. Cuenta ANPP- MINCOM</item>
-        <item>Informe Rendición Cuenta CGR</item>
-        <item>Proyecto de Ley de la CGR</item>
-        <item>Ley de Fomento y Desarrollo de la Ganadería</item>
-        <item>Ley de la Expropiación</item>
-        <item>Ley de Comunicación Social</item>
+        <item>00. Orden del Día y Programa Décimo POS</item>
+        <item>11. Informe perfecc. MINCIN 2022</item>
+        <item>12. Proyecto de Ley de la FGR</item>
+        <item>13. Decretos Leyes y Acuerdos del Consejo de Estado</item>
+        <item>14. Informe Rendición de Cuenta Consejo de Estado</item>
+        <item>15. Informe Rend. Cuenta ANPP- MINCOM</item>
+        <item>16. Informe Rendición Cuenta CGR</item>
+        <item>17. Proyecto de Ley de la CGR</item>
+        <item>18. Ley de Fomento y Desarrollo de la Ganadería</item>
+        <item>19. Ley de la Expropiación</item>
+        <item>20. Ley de Comunicación Social</item>
         <item>Convocatoria</item>
-        <item>CONCEPTUALIZACIÓN DEL MODELO ECONÓMICO Y SOCIAL</item>
-        <item>DECRETOS LEYES PUBLICADOS GO 20-02-202 a 20-10-2022</item>
-        <item>Discurso Clausura 8vo congreso Diaz Canel</item>
-        <item>ENTREGA DIGITAL IDEAS CONCEPTOS Y DIRECTRICES10 (2)</item>
-        <item>goc_2021-o74 DL-40-21 RÉGIMEN ESPECIAL SS MININT</item>
-        <item>goc_2021-o75_0_0 DL38-21 MISIÓN MINCULT</item>
-        <item>goc-2019-o60 L127-19 LEY ELECTORAL</item>
-        <item>goc-2019-o71 L128-19 SÍMBOLOS NACIONALES</item>
-        <item>goc-2020-ex4 L130 PRESUPUESTO 2020</item>
-        <item>goc-2020-ex5_0 L132-20 ORG Y FCTO AMPP Y CP</item>
-        <item>goc-2020-ex6_0 L131-20 ORG Y FCTO ANPP Y CE</item>
-        <item>goc-2020-ex40_0 DL12-20  MODIF L130 PRESUPUESTO AÑO 2020</item>
-        <item>goc-2020-ex58_0 DL -14-20 DE LA PRENDA Y DE LA HIPOTECA DL15-20 FIDEICOMISO DE GARANTÍA</item>
-        <item>goc-2020-ex58_0 DL14-20 PRENDA E HIPOTECA</item>
-        <item>goc-2020-ex68 DL17-20 IMPLEMENTACIÓN ORDENAMIENTO MONETARIO</item>
-        <item>goc-2020-ex68 DL-18-21 PROCDTO TRANSITORIO CÁLCULO PENSIONES Y SUBSIDIOS</item>
-        <item>goc-2020-ex68 DL19-20 PRCDTO TRANSITORIO CÁLCULO SS SECTOR NO ESTATAL</item>
-        <item>goc-2020-ex68 DL-20-20 PCDTO TRANSITORIO MATERNIDAD TRABAJADORA</item>
-        <item>goc-2020-ex68 DL21-20 MODIF L113 SISTEMA TRIBUTARIO</item>
-        <item>goc-2020-ex68 DL22-20 ARANCEL IMPORTACIONES NO COMERCIALES</item>
-        <item>goc-2020-ex68 DL-24 MODIF L130 PRESUPUESTO AÑO 2020</item>
-        <item>goc-2020-o11 L129-20 DE PESCA</item>
-        <item>goc-2020-o12_0 DL1-20 MODIF L126 PRESUPUESTO 2019</item>
-        <item>goc-2020-o52 DL4-20 COMISIÓN NAC USO ORGANISMOS MODIFICADOS</item>
-        <item>goc-2020-o54 DL6-20 SISTEMA INFORMACIÓN DE GOBIERNO</item>
-        <item>goc-2020-o55 DL3-20 SIST GESTIÓN DOCUMENTAL Y ARCHIVO</item>
-        <item>goc-2020-o65_0 DL10-20 AUTORIDADES NACIONALES REGULADORAS</item>
-        <item>goc-2020-o66 DL8 NMC Y ACREDITACIÓN</item>
-        <item>goc-2020-o70 DL11-20 SEGURO RESP CIVIL CONDUCTORES PROFESIONALES</item>
-        <item>goc-2020-o74DL5-20 SEGURIDAD SOCIAL UBPC</item>
-        <item>goc-2020-o76 DL9-20 INOCUIDAD ALIMENTARIA</item>
-        <item>goc-2020-o83_0_0_0 DL2-19 MECANIZACIÓN RIEGO ETC</item>
-        <item>goc-2020-o85_0 DL16-20 COOPERACIÓNN INTERNACIONAL</item>
-        <item>goc-2020-o87 L133-20 SERVICIO EXTERIOR</item>
-        <item>goc-2020-o88 L134-20 ORGANIZACIÓN Y FCTO CONSEJO MINISTROS</item>
-        <item>goc-2020-o88 L135-20 REVOCACIÓN ELEGIDOS PP</item>
-        <item>goc-2020-o89 L136 PDTE Y VICEPDTE REPÚBLICA CUBA</item>
-        <item>goc-2021.ex2__0 L137-20 PRESUPUESTO AÑO 2021</item>
-        <item>goc-2021-0139 L142-21 PROCESO ADMTVO</item>
-        <item>goc-2021-ex25- DL31-21 BIENESTAR ANIMAL</item>
-        <item>goc-2021-ex51 DL37-21 MODIF DL17-20 ORDENAMIENTO MONETARIO</item>
-        <item>goc-2021-ex90 DL51-21 REGISTROS PÚBLICOS B INMUEBLES</item>
-        <item>goc-2021-ex103 DL57-21 REGIMEN ESPECIAL CREATIVOS COMUNICACIÓN SOCIAL</item>
-        <item>goc-2021-ex105 DL58-21 MODIFICA DL13 SISTEEMA TRABAJO CUADROS</item>
-        <item>goc-2021-o14 L138-20 ORGANIZAC Y FCTO GOB. PROVINCIAL PP</item>
-        <item>goc-2021-o14 L139-20 ORGANIZAC Y FCTO GOB. MNPAL PP</item>
-        <item>goc-2021-o24 DL28-21 CONSEJO TÉCNICO ASESOR</item>
-        <item>goc-2021-o26 DL27-20 RÉGIMEN ESPECIAL SS ATLETAS ACTIVOS Y GLORIAS DEPORTE</item>
-        <item>goc-2021-o30 DL13-20 SISTEMA TRABAJO CUADROS</item>
-        <item>goc-2021-o39 DL30-21 SERVICIOS POSTALES</item>
-        <item>goc-2021-o40 DL-29-21 MODIF L1307-76 INSTITUC ED SUP MINFAR</item>
-        <item>goc-2021-o51 DL34-21 SISTEMA EMPRESARIAL ESTATAL CUBANO</item>
-        <item>goc-2021-o51 DL36-21 MODIF L105 SEGURIDAD SOCIAL</item>
-        <item>goc-2021-o55 DL32-21 CREA MEDALLA 60 ANIVERSARIO MININT</item>
-        <item>goc-2021-o55 DL33-21 MODIF DL202-99  PROHIBICIÓN ARMAS QUÍMICAS</item>
-        <item>goc-2021-o63_0 DL25-20 MODIF DL67-83 ORGANIZACIÓN ADMON CTRAL ESTADO</item>
-        <item>goc-2021-o63_0 DL26-20 MODIF DL 226 REGISTRO MERCANTIL</item>
-        <item>goc-2021-o87 DL39-21 INFRACCIONES ELECTORALES Y EFECTOS</item>
-        <item>goc-2021-o92 DL35-21 TELECOM TIC Y ESPECTRO</item>
-        <item>goc-2021-o93 DL7-20 SISTEMA CIENCIA TECNOLOGÍA INNOVACIÓN</item>
-        <item>goc-2021-o94 DL 44-21 EJERCICIO TCP</item>
-        <item>goc-2021-o94 DL 46-21 MIPYMES</item>
-        <item>goc-2021-o94 DL45-21 CONTRAVENCIONES PERSONALES TCP</item>
-        <item>goc-2021-o94 DL47-CNA</item>
-        <item>goc-2021-o94 DL48-21 RÉGIMEN ESPECIAL SS FGNE</item>
-        <item>goc-2021-o94 DL49-21 MODIF LEY 113 SISTEMA TRIBUTARIO</item>
-        <item>goc-2021-o96 DL41-21 CREA INST INFORMACIÓN Y COMUNICACIÓN SOCIAL</item>
-        <item>goc-2021-o96 DL42-21 REORGANIZACIÓN PF Y CREA INOTU</item>
-        <item>goc-2021-o96 DL43-21 MISIÓN MES</item>
-        <item>goc-2021-o120_0 DL50-21CONSERVACIÓN, MEJORAMIENTO...FERTILIZANTES</item>
-        <item>goc-2021-o126_0 DL52-21 MODIF L 1307-76</item>
-        <item>goc-2021-o126_0 DL53-21 BANCO POPULAR AHORRO</item>
-        <item>goc-2021-o126_0DL54-21 BANCO EXTERIOR DE CUBA</item>
-        <item>goc-2021-o136_2 DL55-21 SISTEMA AYUDAS A NAVEGACIÓN MARÍTIMA</item>
-        <item>goc-2021-o137 L140-21 TRIBUNALES DE JUSTICIA</item>
-        <item>goc-2021-o138 L-141-21 CÓDIGO DE PROCESOS</item>
-        <item>goc-2021-o140_1 L143-21 PROCESO PENAL</item>
-        <item>goc-2021-o145 DL56-21 MATERNIDAD TRABAJADORA</item>
-        <item>goc-2022-ex1 L144-21 PRESUPUESTO AÑO 2022</item>
-        <item>goc-2022-ex11 L146-21 TRIBUNALES MILITARES</item>
-        <item>goc-2022-ex32 DL60-22 TIEMPO SERVICIO PENSIONES PESCADORES</item>
-        <item>goc-2022-ex34 DL61 MODIF LEY 144 PRESUPUESTO 2022</item>
-        <item>goc-2022-ex46 DL63-22 ACTUALIZACIÓN TASAS DE CAMBIO</item>
-        <item>goc-2022-o10 DL59-22 MODIF L18 LIMITES TERRITORIALES PROVINCIAS Y MNPIOS</item>
-        <item>goc-2022-o56 DL62-22 MODIF DL37- NUEVO PLAZO CAMBIO CUC</item>
-        <item>goc-2022-o56 DL62-22 MODIF DL37- NUEVO PLAZO CAMBIO CUC</item>
-        <item>goc-2022-o74 L153-22 PROCESO DE AMPARO</item>
-        <item>goc-2022-o77 L148-22 SOBERANÍA ALIMENTARIA</item>
-        <item>goc-2022-o87 L156 CÓDIGO FAMILIAS</item>
-        <item>goc-2022-o90_0 L149-22 PROTECCIÓN DATOS PERSONALES</item>
-        <item>goc-2022-o93_0 L151-22 CÓDIGO PENAL</item>
-        <item>goc-2022-o94 L152-22 EJECUCIÓN PENAL</item>
-        <item>Informe Central</item>
-        <item>LEYES PUBLICADAS EN LA GACETA OFICIAL DE LA REPÚBLICA DE CUBA</item>
-        <item>Res. 8vo Implementacion Lineamientos</item>
-        <item>Res. Informe Central 8vo C</item>
-        <item>Resolucion 8vo Congreso</item>
-        <item>Val. politica de Cuadros 8vo. C</item>
     </string-array>
 </resources>

@@ -26,7 +26,7 @@ class DocumetAdapter(val listDocument: List<String>, val itemClick: ItemClick, v
                     itemClick.clicked(position)
                 }
                 binding.downloadDocument.setOnClickListener {
-                    click.clicked(position)
+                    click.clicked(position,listDocument[position])
                 }
             }
         }

@@ -67,8 +67,9 @@ class Documents : AppCompatActivity() {
                 startActivity(intent)
             }
         }, object : ClikPdf {
-            override fun clicked(pos: Int) {
-                openPDF(pos + 1)
+            override fun clicked(pos: Int, s: String) {
+                openPDF(pos + 1,s)
+                Log.w("Title",s)
             }
         })
 
@@ -79,10 +80,10 @@ class Documents : AppCompatActivity() {
 
 
     // Access pdf from storage and using to Intent get options to view application in available applications.
-    private fun openPDF(doc: Int) {
+    private fun openPDF(doc: Int,docTitle: String) {
 
         // Get the File location and file name.
-        val file = File(Environment.getExternalStorageDirectory(), "Documentos Asamblea/${doc}.pdf")
+        val file = File(Environment.getExternalStorageDirectory(), "Documentos Asamblea/${docTitle}.pdf")
         Log.d("pdfFIle", "" + doc + file)
 
         // Get the URI Path of file.

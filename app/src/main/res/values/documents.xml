@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="Documents_name">
-        <item>00. Orden del Día y Programa Décimo POS</item>
-        <item>11. Informe perfecc. MINCIN 2022</item>
-        <item>12. Proyecto de Ley de la FGR</item>
-        <item>13. Decretos Leyes y Acuerdos del Consejo de Estado</item>
-        <item>14. Informe Rendición de Cuenta Consejo de Estado</item>
-        <item>15. Informe Rend. Cuenta ANPP- MINCOM</item>
-        <item>16. Informe Rendición Cuenta CGR</item>
-        <item>17. Proyecto de Ley de la CGR</item>
-        <item>18. Ley de Fomento y Desarrollo de la Ganadería</item>
-        <item>19. Ley de la Expropiación</item>
-        <item>20. Ley de Comunicación Social</item>
-        <item>Convocatoria</item>
+        <item>Punto No. 07_Informe MINAG</item>
+        <item>Punto No. 07_Informe MINAL</item>
+        <item>Punto No. 08_Informe perfecc. MINCIN 2022</item>
+        <item>Punto No. 09_Cronograma Legislativo 2022</item>
+        <item>Punto No. 10_Decretos Leyes y Acuerdos del Consejo de Estado</item>
+        <item>Punto No. 13_Informe Rendición de Cuenta Consejo de Estado</item>
+        <item>Punto No. 14_Informe Rend. Cuenta MINCOM</item>
+        <item>Punto No. 15_Informe Rendición Cuenta CGR</item>
+        <item>Punto No. 16_Proyecto Ley de la CGR</item>
+        <item>Punto No. 17_Proyecto Ley de Comunicación Social</item>
+        <item>Punto No. 18_Proyecto Ley de la Expropiación</item>
+        <item>Punto No. 19_Proyecto Ley de la FGR</item>
+        <item>Punto No. 20_Proyecto Ley de Fomento y Desarrollo de la Ganadería</item>
+
     </string-array>
 </resources>

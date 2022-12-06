@@ -1,5 +1,5 @@
 package cu.desoft.sesionasamblea.utils
 
 interface ClikPdf {
-    fun clicked(pos: Int)
+    fun clicked(pos: Int, s: String)
 }

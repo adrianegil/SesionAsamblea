@@ -116,6 +116,20 @@ class LoginActivity : AppCompatActivity() {
         ).show()
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("register", binding.editTextNoRegister.text.toString())
+        outState.putString("folio", binding.editTextNoFolio.text.toString())
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        if(savedInstanceState != null) {
+            binding.editTextNoRegister.setText(savedInstanceState.getString("register",""))
+            binding.editTextNoFolio.setText(savedInstanceState.getString("folio",""))
+        }
+    }
+
 }
 
 
